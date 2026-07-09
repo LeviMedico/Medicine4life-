@@ -35,14 +35,13 @@ fetch('posts.json')
 
     posts.forEach(post => {
       container.innerHTML += `
-        container.innerHTML += `
-  <article>
-    <h2>${post.title}</h2>
-    <p>${post.date}</p>
-    <p>${post.summary}</p>
-    <a href="${post.link}">Read more</a>
-  </article>
-`;
+        <article>
+          <h2>${post.title}</h2>
+          <p>${post.date}</p>
+          <p>${post.summary}</p>
+          <a href="${post.link}">Read more</a>
+        </article>
+      `;
     });
   })
   .catch(error => {
