@@ -14,4 +14,19 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Category", name: "tag", widget: "select", options: ["AI Diagnostics", "Wearables", "Diagnostics", "Genomics"], default: "Diagnostics"}
+      - {label: "Summary (shown on homepage/article list)", name: "summary", widget: "string", required: false}
+      - {label: "Featured Image", name: "image", widget: "image", required: false, hint: "Shows at the top of the article and as the card thumbnail."}
+      - {label: "Body", name: "body", widget: "markdown", media_library: {config: {multiple: false}}}
+
+  - name: "news"
+    label: "News"
+    folder: "news"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Headline", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Summary", name: "summary", widget: "text"}
+      - {label: "Source name (optional)", name: "sourceName", widget: "string", required: false}
+      - {label: "Source link (optional)", name: "sourceUrl", widget: "string", required: false}
