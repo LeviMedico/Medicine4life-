@@ -1,8 +1,14 @@
 [
   {
-    "title": "Example Medical Innovation Article",
+    "title": "AI in Radiology: The Future of Medical Imaging",
     "date": "2026-07-09",
-    "summary": "A short description of the article.",
-    "link": "#"
+    "summary": "How artificial intelligence is transforming diagnosis and medical imaging.",
+    "link": "post-ai-radiology.html"
+  },
+  {
+    "title": "CRISPR and the Future of Genetic Medicine",
+    "date": "2026-07-09",
+    "summary": "Exploring how gene editing technology may change future treatments.",
+    "link": "post-crispr-diagnostics.html"
   }
 ]
