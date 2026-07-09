@@ -1,5 +1,8 @@
 {
   "scripts": {
     "build": "node generate-posts.js"
+  },
+  "dependencies": {
+    "marked": "^12.0.0"
   }
 }
