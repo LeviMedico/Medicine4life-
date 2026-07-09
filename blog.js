@@ -1,6 +1,21 @@
-fetch('/posts')
-  .then(response => response.text())
-  .then(data => {
+fetch('posts.json')
+  .then(response => response.json())
+  .then(posts => {
+    const container = document.getElementById('posts');
+
+    container.innerHTML = "";
+
+    posts.forEach(post => {
+      container.innerHTML += `
+        <article>
+          <h2>${post.title}</h2>
+          <p>${post.date}</p>
+          <p>${post.summary}</p>
+        </article>
+      `;
+    });
+  })
+  .catch(error => {
     document.getElementById('posts').innerHTML =
-      "Your posts are saved. A blog renderer will be added next.";
+      "Unable to load articles.";
   });
