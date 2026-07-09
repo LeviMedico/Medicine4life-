@@ -3,83 +3,164 @@ const path = require("path");
 const { marked } = require("marked");
 
 const postsFolder = "./posts";
+const newsFolder = "./news";
 
-const files = fs.readdirSync(postsFolder);
+// One icon per category, matching the hand-coded icons used elsewhere on the site.
+const ICONS = {
+  "AI Diagnostics": `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M11 8V5M15 8V5M11 20v3M15 20v3M8 11H5M8 15H5M20 11h3M20 15h3"/></svg>`,
+  "Wearables": `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="8" width="10" height="12" rx="3"/><path d="M11 8V4h6v4M11 20v4h6v-4"/><circle cx="14" cy="14" r="2"/></svg>`,
+  "Diagnostics": `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7l-7 12a2 2 0 0 0 2 3h14a2 2 0 0 0 2-3l-7-12V3"/><path d="M10 3h8"/><path d="M8 18h12"/></svg>`,
+  "Genomics": `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2c9 7 9 7 0 14c9 7 9 7 0 14"/><path d="M20 2c-9 7-9 7 0 14c-9 7-9 7 0 14"/><path d="M8.5 5.5h13M8.5 12.5h13M8.5 15.5h13M8.5 22.5h13"/></svg>`,
+};
+const DEFAULT_ICON = ICONS["Diagnostics"];
 
-const posts = files
-  .filter(file => file.endsWith(".md"))
-  .map(file => {
-    const content = fs.readFileSync(
-      path.join(postsFolder, file),
-      "utf8"
-    );
+function parseFrontmatter(raw) {
+  const match = raw.match(/^---\s*([\s\S]*?)\s*---\s*([\s\S]*)$/);
+  if (!match) return { data: {}, body: raw };
 
-    const titleMatch = content.match(/title:\s*"(.+)"/);
-    const dateMatch = content.match(/date:\s*(.+)/);
+  const [, frontmatterBlock, body] = match;
+  const data = {};
+  frontmatterBlock.split("\n").forEach(line => {
+    const lineMatch = line.match(/^([A-Za-z0-9_]+):\s*(.*)$/);
+    if (!lineMatch) return;
+    let [, key, value] = lineMatch;
+    value = value.trim().replace(/^"(.*)"$/, "$1");
+    data[key] = value;
+  });
+  return { data, body: body.trim() };
+}
 
-    const title = titleMatch ? titleMatch[1] : "Untitled";
-    const date = dateMatch ? dateMatch[1] : "";
+function formatDate(iso) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (isNaN(d)) return iso;
+  return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+}
 
-    const body = content
-      .replace(/^---[\s\S]*?---/, "")
-      .trim();
+function estimateReadTime(text) {
+  const words = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(words / 200));
+}
 
-    const htmlContent = marked(body);
+function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image }) {
+  const bannerHtml = image
+    ? `<div class="wrap"><img src="${image}" alt="${title}" class="post-banner reveal"></div>`
+    : "";
 
-    const slug = file.replace(".md", "");
-
-    const page = `
-<!DOCTYPE html>
-<html>
+  return `<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>${title} - Medicine4Life</title>
-<meta name="description" content="${title}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title} — Medicine4life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
-
 <body>
 
 <header class="site-header">
-<div class="wrap">
-<div class="logo">Medicine4Life</div>
-<nav class="site-nav">
-<a href="index.html">Home</a>
-<a href="blog.html">Articles</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-</nav>
-</div>
+  <div class="wrap">
+    <div class="logo"><svg class="logo-mark" width="22" height="22" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="12"/><path d="M14 8v12M8 14h12"/></svg>Medicine4life</div>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Articles</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<main class="article-page">
+<article>
+  <div class="wrap post-header">
+    <div class="tag">${icon}${tag}</div>
+    <h1>${title}</h1>
+    <div class="byline">Medicine4life · ${dateDisplay}</div>
+  </div>
 
-<h1>${title}</h1>
-<p>${date}</p>
+  ${bannerHtml}
 
-${htmlContent}
+  <div class="wrap post-body">
+${htmlBody}
+  </div>
 
-</main>
+  <div class="wrap" style="padding-bottom: 60px;">
+    <a class="back-link" href="blog.html">&larr; Back to all posts</a>
+  </div>
+</article>
 
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="brand-mark"><svg width="16" height="16" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15h6l3-9 4 18 3-9h6"/></svg>Medicine4life — medical technology, explained clearly</span>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
 </body>
 </html>
 `;
+}
 
-    fs.writeFileSync(
-      `${slug}.html`,
-      page
-    );
+// ---------- Blog posts ----------
+const postFiles = fs.existsSync(postsFolder) ? fs.readdirSync(postsFolder) : [];
+
+const posts = postFiles
+  .filter(file => file.endsWith(".md"))
+  .map(file => {
+    const raw = fs.readFileSync(path.join(postsFolder, file), "utf8");
+    const { data, body } = parseFrontmatter(raw);
+
+    const title = data.title || "Untitled";
+    const tag = data.tag || "Diagnostics";
+    const icon = ICONS[tag] || DEFAULT_ICON;
+    const dateDisplay = formatDate(data.date);
+    const image = data.image || "";
+    const summary = data.summary || body.split("\n").find(l => l.trim().length > 0) || "";
+    const readMinutes = estimateReadTime(body);
+
+    const htmlBody = marked(body);
+    const slug = file.replace(".md", "");
+    const link = `${slug}.html`;
+
+    fs.writeFileSync(link, renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image }));
 
     return {
       title,
-      date,
-      summary: "",
-      link: `${slug}.html`
+      date: data.date || "",
+      dateDisplay,
+      tag,
+      summary: summary.length > 160 ? summary.slice(0, 157) + "..." : summary,
+      readMinutes,
+      image,
+      link,
     };
-  });
+  })
+  .sort((a, b) => new Date(b.date) - new Date(a.date));
 
-fs.writeFileSync(
-  "posts.json",
-  JSON.stringify(posts, null, 2)
-);
+fs.writeFileSync("posts.json", JSON.stringify(posts, null, 2));
 
-console.log("Articles generated");
+// ---------- News items (short items, no individual pages) ----------
+const newsFiles = fs.existsSync(newsFolder) ? fs.readdirSync(newsFolder) : [];
+
+const newsItems = newsFiles
+  .filter(file => file.endsWith(".md"))
+  .map(file => {
+    const raw = fs.readFileSync(path.join(newsFolder, file), "utf8");
+    const { data } = parseFrontmatter(raw);
+    return {
+      title: data.title || "Untitled",
+      date: data.date || "",
+      dateDisplay: formatDate(data.date),
+      summary: data.summary || "",
+      sourceName: data.sourceName || "",
+      sourceUrl: data.sourceUrl || "",
+    };
+  })
+  .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+fs.writeFileSync("news.json", JSON.stringify(newsItems, null, 2));
+
+console.log(`Generated ${posts.length} post page(s), posts.json, and news.json (${newsItems.length} item(s))`);

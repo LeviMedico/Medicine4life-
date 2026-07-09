@@ -1,54 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Articles - Medicine4Life</title>
-  <meta name="description" content="Latest medical technology, research, and healthcare innovations.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Articles — Medicine4life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
-
 <body>
 
 <header class="site-header">
   <div class="wrap">
-    <div class="logo">Medicine4Life</div>
-
+    <div class="logo"><svg class="logo-mark" width="22" height="22" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="12"/><path d="M14 8v12M8 14h12"/></svg>Medicine4life</div>
     <nav class="site-nav">
       <a href="index.html">Home</a>
       <a href="blog.html" class="active">Articles</a>
+      <a href="news.html">News</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
-<main>
-  <h1>Medical Articles</h1>
-<p>Latest discoveries, technologies, and innovations in medicine.</p>
+<main class="wrap page-body">
+  <h1>Articles</h1>
+  <p>Every post published through the CMS, newest first.</p>
 
-  <div id="posts"></div>
+  <div class="section-label" style="margin-top: 12px;">All posts</div>
+  <div id="posts" class="post-list"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="brand-mark"><svg width="16" height="16" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15h6l3-9 4 18 3-9h6"/></svg>Medicine4life — medical technology, explained clearly</span>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
 
 <script>
+const ICONS = {
+  "AI Diagnostics": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M11 8V5M15 8V5M11 20v3M15 20v3M8 11H5M8 15H5M20 11h3M20 15h3"/></svg>',
+  "Wearables": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="8" width="10" height="12" rx="3"/><path d="M11 8V4h6v4M11 20v4h6v-4"/><circle cx="14" cy="14" r="2"/></svg>',
+  "Diagnostics": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7l-7 12a2 2 0 0 0 2 3h14a2 2 0 0 0 2-3l-7-12V3"/><path d="M10 3h8"/><path d="M8 18h12"/></svg>',
+  "Genomics": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2c9 7 9 7 0 14c9 7 9 7 0 14"/><path d="M20 2c-9 7-9 7 0 14c-9 7-9 7 0 14"/><path d="M8.5 5.5h13M8.5 12.5h13M8.5 15.5h13M8.5 22.5h13"/></svg>'
+};
+const DEFAULT_ICON = ICONS["Diagnostics"];
+
 fetch('posts.json')
   .then(response => response.json())
   .then(posts => {
     const container = document.getElementById('posts');
-
-    container.innerHTML += `
-  <article class="article-card">
-    <h2>${post.title}</h2>
-    <p class="date">${post.date}</p>
-    <p>${post.summary || "Latest discoveries and innovations in medicine."}</p>
-    <a href="${post.link}" class="read-more">Read more →</a>
-  </article>
-`;
-    });
+    if (!posts.length) {
+      container.innerHTML = '<p style="padding: 20px 0; color: var(--ink-soft);">No posts yet — write your first one in the CMS.</p>';
+      return;
+    }
+    container.innerHTML = posts.map(post => {
+      const icon = ICONS[post.tag] || DEFAULT_ICON;
+      const thumb = post.image ? `<img src="${post.image}" alt="" class="card-thumb">` : '';
+      return `
+        <a class="post-card reveal" href="${post.link}">
+          ${thumb}
+          <div class="tag">${icon}${post.tag || 'Diagnostics'}</div>
+          <h2>${post.title}</h2>
+          <p>${post.summary || ''}</p>
+          <div class="meta">${post.readMinutes ? post.readMinutes + ' min read' : ''}${post.dateDisplay ? ' · ' + post.dateDisplay : ''}</div>
+        </a>`;
+    }).join('');
+    window.initReveal();
   })
   .catch(error => {
     document.getElementById('posts').innerHTML =
-      "Unable to load articles.";
+      '<p style="padding: 20px 0; color: var(--ink-soft);">Unable to load articles right now.</p>';
     console.error(error);
   });
 </script>
-</main>
 
+<script src="script.js" defer></script>
 </body>
 </html>

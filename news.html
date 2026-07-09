@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News — Medicine4life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="logo"><svg class="logo-mark" width="22" height="22" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="12"/><path d="M14 8v12M8 14h12"/></svg>Medicine4life</div>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Articles</a>
+      <a href="news.html" class="active">News</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap page-body">
+  <h1>News</h1>
+  <p>Short updates on approvals, studies, and launches — quicker reads than the full articles.</p>
+
+  <div class="section-label" style="margin-top: 12px;">Latest</div>
+  <div id="news" class="news-list"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="brand-mark"><svg width="16" height="16" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15h6l3-9 4 18 3-9h6"/></svg>Medicine4life — medical technology, explained clearly</span>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
+
+<script>
+fetch('news.json')
+  .then(response => response.json())
+  .then(items => {
+    const container = document.getElementById('news');
+    if (!items.length) {
+      container.innerHTML = '<p style="padding: 20px 0; color: var(--ink-soft);">No news items yet.</p>';
+      return;
+    }
+    container.innerHTML = items.map(item => {
+      const source = item.sourceUrl
+        ? `<a class="news-source" href="${item.sourceUrl}" target="_blank" rel="noopener">Source: ${item.sourceName || 'Link'} &rarr;</a>`
+        : (item.sourceName ? `<span class="news-source">Source: ${item.sourceName}</span>` : '');
+      return `
+        <div class="news-item reveal">
+          <span class="news-date">${item.dateDisplay || ''}</span>
+          <h3>${item.title}</h3>
+          <p>${item.summary || ''}</p>
+          ${source}
+        </div>`;
+    }).join('');
+    window.initReveal();
+  })
+  .catch(error => {
+    document.getElementById('news').innerHTML =
+      '<p style="padding: 20px 0; color: var(--ink-soft);">Unable to load news right now.</p>';
+    console.error(error);
+  });
+</script>
+
+<script src="script.js" defer></script>
+</body>
+</html>

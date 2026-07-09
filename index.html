@@ -7,15 +7,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body>
 
-<nav class="site-nav">
-  <a href="index.html" class="active">Home</a>
-  <a href="blog.html">Articles</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-</nav>
+<header class="site-header">
+  <div class="wrap">
+    <div class="logo"><svg class="logo-mark" width="22" height="22" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="12"/><path d="M14 8v12M8 14h12"/></svg>Medicine4life</div>
+    <nav class="site-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="blog.html">Articles</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
 <section class="hero">
   <div class="wrap">
@@ -29,90 +36,46 @@
   </div>
 </section>
 
-<main>
+<main class="wrap">
+  <div class="section-label">Latest posts</div>
 
-<section class="hero">
+  <div class="post-list">
 
-<div class="wrap">
+    <a class="post-card reveal" href="post-skin-cancer-apps.html">
+      <div class="tag"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7l-7 12a2 2 0 0 0 2 3h14a2 2 0 0 0 2-3l-7-12V3"/><path d="M10 3h8"/><path d="M8 18h12"/></svg>Diagnostics</div>
+      <h2>Skin cancer detection apps: how good are they really?</h2>
+      <p>Should you trust a 30-second phone scan over a dermatologist? Here's what the accuracy studies actually say.</p>
+      <div class="meta">9 min read</div>
+    </a>
 
-<div class="hero-content">
+    <a class="post-card reveal" href="post-ai-radiology.html">
+      <div class="tag"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M11 8V5M15 8V5M11 20v3M15 20v3M8 11H5M8 15H5M20 11h3M20 15h3"/></svg>AI Diagnostics</div>
+      <h2>AI models can read X-rays fast. Should they read them alone?</h2>
+      <p>A look at what the accuracy numbers actually mean once you account for how radiologists work in practice.</p>
+      <div class="meta">6 min read</div>
+    </a>
 
-<h1>
-The Future of <span>Medicine</span> Starts Here
-</h1>
+    <a class="post-card reveal" href="post-glucose-wearables.html">
+      <div class="tag"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="8" width="10" height="12" rx="3"/><path d="M11 8V4h6v4M11 20v4h6v-4"/><circle cx="14" cy="14" r="2"/></svg>Wearables</div>
+      <h2>Continuous glucose monitors are coming for people without diabetes</h2>
+      <p>Why metabolic wearables are moving into general wellness — and what the evidence does and doesn't support.</p>
+      <div class="meta">5 min read</div>
+    </a>
 
-<p>
-Explore the latest breakthroughs in artificial intelligence,
-biotechnology, medical inventions, and healthcare innovation.
-</p>
+    <a class="post-card reveal" href="post-crispr-diagnostics.html">
+      <div class="tag"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7l-7 12a2 2 0 0 0 2 3h14a2 2 0 0 0 2-3l-7-12V3"/><path d="M10 3h8"/><path d="M8 18h12"/></svg>Diagnostics</div>
+      <h2>The 15-minute test that could replace the lab</h2>
+      <p>CRISPR-based diagnostics are edging toward the clinic. Here's the case for cautious optimism.</p>
+      <div class="meta">7 min read</div>
+    </a>
 
-<a href="blog.html" class="hero-button">
-Explore Articles
-</a>
+  </div>
 
-</div>
-
-<div class="medical-animation"></div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>Latest Medical Innovations</h2>
-
-<p>
-Discover technologies transforming healthcare:
-</p>
-
-<div>
-
-<article>
-<h2>Artificial Intelligence in Medicine</h2>
-<p>
-How AI is improving diagnosis, imaging, and patient care.
-</p>
-<a href="blog.html">Read Articles →</a>
-</article>
-
-
-<article>
-<h2>Biotechnology Breakthroughs</h2>
-<p>
-Explore gene editing, stem cells, and regenerative medicine.
-</p>
-<a href="blog.html">Read Articles →</a>
-</article>
-
-
-<article>
-<h2>Future Healthcare Technologies</h2>
-<p>
-New inventions shaping the next generation of medicine.
-</p>
-<a href="blog.html">Read Articles →</a>
-</article>
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>Why Medicine4Life?</h2>
-
-<p>
-We bring together medical science, technology, and innovation
-to explain the future of healthcare.
-</p>
-
-</section>
-
-
+  <div style="text-align:center; margin: 20px 0 10px;">
+    <a class="back-link" href="blog.html">See all articles &rarr;</a>
+  </div>
 </main>
+
 <footer class="site-footer">
   <div class="wrap">
     <span class="brand-mark"><svg width="16" height="16" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15h6l3-9 4 18 3-9h6"/></svg>Medicine4life — medical technology, explained clearly</span>
@@ -120,5 +83,6 @@ to explain the future of healthcare.
   </div>
 </footer>
 
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script></body>
+<script src="script.js" defer></script>
+</body>
 </html>

@@ -1,14 +1,12 @@
 [
   {
-    "title": "AI in Radiology: The Future of Medical Imaging",
-    "date": "2026-07-09",
-    "summary": "How artificial intelligence is transforming diagnosis and medical imaging.",
-    "link": "post-ai-radiology.html"
-  },
-  {
-    "title": "CRISPR and the Future of Genetic Medicine",
-    "date": "2026-07-09",
-    "summary": "Exploring how gene editing technology may change future treatments.",
-    "link": "post-crispr-diagnostics.html"
+    "title": "3D Bioprinting of Human Organs: Can We Replace Transplants?",
+    "date": "2026-07-09T03:04:32.914Z",
+    "dateDisplay": "July 9, 2026",
+    "tag": "Genomics",
+    "summary": "3D bioprinting is closing in on real tissue repair — but a fully transplantable printed organ is still years away. Here's why.",
+    "readMinutes": 4,
+    "image": "",
+    "link": "3d-bioprinting-of-human-organs-can-we-replace-transplants.html"
   }
 ]
