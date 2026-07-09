@@ -24,9 +24,29 @@
   <h1>Medical Articles</h1>
   <p>Latest discoveries, technologies, and innovations in medicine.</p>
 
-  <div id="posts">
-    Loading articles...
-  </div>
+  <div id="posts"></div>
+
+<script>
+fetch('posts.json')
+  .then(response => response.json())
+  .then(posts => {
+    const container = document.getElementById('posts');
+
+    posts.forEach(post => {
+      container.innerHTML += `
+        <article>
+          <h2>${post.title}</h2>
+          <p>${post.date}</p>
+          <p>${post.summary}</p>
+        </article>
+      `;
+    });
+  })
+  .catch(error => {
+    document.getElementById('posts').innerHTML =
+      "Unable to load articles.";
+  });
+</script>
 </main>
 
 </body>
