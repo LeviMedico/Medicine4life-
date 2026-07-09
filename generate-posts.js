@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { marked } = require("marked");
 
 const postsFolder = "./posts";
 
@@ -13,14 +14,66 @@ const posts = files
       "utf8"
     );
 
-    const title = content.match(/title:\s*(.*)/);
-    const date = content.match(/date:\s*(.*)/);
+    const titleMatch = content.match(/title:\s*"(.+)"/);
+    const dateMatch = content.match(/date:\s*(.+)/);
+
+    const title = titleMatch ? titleMatch[1] : "Untitled";
+    const date = dateMatch ? dateMatch[1] : "";
+
+    const body = content
+      .replace(/^---[\s\S]*?---/, "")
+      .trim();
+
+    const htmlContent = marked(body);
+
+    const slug = file.replace(".md", "");
+
+    const page = `
+<!DOCTYPE html>
+<html>
+<head>
+<title>${title} - Medicine4Life</title>
+<meta name="description" content="${title}">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+<div class="wrap">
+<div class="logo">Medicine4Life</div>
+<nav class="site-nav">
+<a href="index.html">Home</a>
+<a href="blog.html">Articles</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="article-page">
+
+<h1>${title}</h1>
+<p>${date}</p>
+
+${htmlContent}
+
+</main>
+
+</body>
+</html>
+`;
+
+    fs.writeFileSync(
+      `${slug}.html`,
+      page
+    );
 
     return {
-      title: title ? title[1].replace(/"/g, "") : "Untitled",
-      date: date ? date[1].replace(/"/g, "") : "",
+      title,
+      date,
       summary: "",
-      link: file.replace(".md", ".html")
+      link: `${slug}.html`
     };
   });
 
@@ -29,4 +82,4 @@ fs.writeFileSync(
   JSON.stringify(posts, null, 2)
 );
 
-console.log("posts.json generated");
+console.log("Articles generated");
