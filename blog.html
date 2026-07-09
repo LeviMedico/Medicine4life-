@@ -27,7 +27,7 @@
   <div id="posts"></div>
 
 <script>
-fetch('/.netlify/functions/posts')
+fetch('posts.json')
   .then(response => response.json())
   .then(posts => {
     const container = document.getElementById('posts');
