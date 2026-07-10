@@ -1,8 +1,11 @@
 ---
-title: "Continuous glucose monitors are coming for people without diabetes"
+title: Continuous glucose monitors are coming for people without diabetes
 date: 2026-07-02T09:00:00.000Z
-tag: "Wearables"
-summary: "Why metabolic wearables are moving into general wellness — and what the evidence does and doesn't support."
+tag: Wearables
+summary: Why metabolic wearables are moving into general wellness — and what the
+  evidence does and doesn't support.
+author: "Sushil Dethaliya "
+image: /images/uploads/423.png
 ---
 Continuous glucose monitors were built for one job: helping people with diabetes manage insulin dosing without finger sticks. That's still their best-supported use. But over the last few years, a second market has grown up around them — healthy adults wearing a CGM to "optimize" energy, sleep, or weight, with no diabetes diagnosis at all.
 
