@@ -35,4 +35,5 @@ summary: >-
 
 
   Disclaimer: This article is intended for educational and informational purposes only and should not be considered medical advice. Patients should consult their treating physician before making any changes to their diabetes treatment.
+image: /images/uploads/287.avif
 ---
