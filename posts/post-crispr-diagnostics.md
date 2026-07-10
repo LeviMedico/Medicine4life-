@@ -1,6 +1,6 @@
 ---
 title: The 15-minute test that could replace the lab
-date: 2026-06-24T09:00:00.000Z
+date: 2026-07-11T09:00:00.000Z
 tag: Diagnostics
 summary: CRISPR-based diagnostics are edging toward the clinic. Here's the case
   for cautious optimism.
