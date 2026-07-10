@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>News — Medicine4life</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
@@ -24,12 +24,14 @@
   </div>
 </header>
 
-<main class="wrap page-body">
-  <h1>News</h1>
-  <p>Short updates on approvals, studies, and launches — quicker reads than the full articles.</p>
+<main class="wrap">
+  <h1 style="font-family:var(--font-display); font-size:2rem; margin: 30px 0 8px;">News</h1>
+  <p style="color:var(--ink-soft); margin-bottom: 20px;">Short updates on approvals, studies, and launches — quicker reads than the full articles.</p>
 
-  <div class="section-label" style="margin-top: 12px;">Latest</div>
-  <div id="news" class="news-list"></div>
+  <div id="featured-slot"></div>
+
+  <div class="section-label" id="rest-label" style="display:none;">More news</div>
+  <div id="news" class="card-grid"></div>
 </main>
 
 <footer class="site-footer">
@@ -40,26 +42,46 @@
 </footer>
 
 <script>
+const NEWS_ICON = '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h6l3-9 4 18 3-9h6"/></svg>';
+
 fetch('news.json')
   .then(response => response.json())
   .then(items => {
+    const featuredSlot = document.getElementById('featured-slot');
     const container = document.getElementById('news');
+
     if (!items.length) {
-      container.innerHTML = '<p style="padding: 20px 0; color: var(--ink-soft);">No news items yet.</p>';
+      featuredSlot.innerHTML = '<p style="padding: 20px 0; color: var(--ink-soft);">No news items yet.</p>';
       return;
     }
-    container.innerHTML = items.map(item => {
-      const source = item.sourceUrl
-        ? `<a class="news-source" href="${item.sourceUrl}" target="_blank" rel="noopener">Source: ${item.sourceName || 'Link'} &rarr;</a>`
-        : (item.sourceName ? `<span class="news-source">Source: ${item.sourceName}</span>` : '');
+
+    const [first, ...rest] = items;
+    featuredSlot.innerHTML = `
+      <a class="featured reveal" href="${first.link}">
+        <div class="featured-img">${first.image ? `<img src="${first.image}" alt="" style="width:100%;height:100%;object-fit:cover;">` : NEWS_ICON}</div>
+        <div class="featured-body">
+          <div class="tag">${NEWS_ICON}News</div>
+          <h2>${first.title}</h2>
+          <p>${first.summary || ''}</p>
+          <div class="meta">${first.dateDisplay || ''}</div>
+        </div>
+      </a>`;
+
+    if (rest.length) document.getElementById('rest-label').style.display = 'block';
+
+    container.innerHTML = rest.map(item => {
+      const thumb = item.image ? `<img src="${item.image}" alt="" style="width:100%;height:100%;object-fit:cover;">` : NEWS_ICON;
       return `
-        <div class="news-item reveal">
-          <span class="news-date">${item.dateDisplay || ''}</span>
-          <h3>${item.title}</h3>
-          <p>${item.summary || ''}</p>
-          ${source}
-        </div>`;
+        <a class="grid-card reveal" href="${item.link}">
+          <div class="grid-img">${thumb}</div>
+          <div class="grid-body">
+            <div class="tag">${NEWS_ICON}News</div>
+            <h3>${item.title}</h3>
+            <span>${item.dateDisplay || ''}</span>
+          </div>
+        </a>`;
     }).join('');
+
     window.initReveal();
   })
   .catch(error => {

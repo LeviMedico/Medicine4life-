@@ -54,7 +54,7 @@ function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image }) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title} — Medicine4life</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
@@ -142,21 +142,104 @@ const posts = postFiles
 
 fs.writeFileSync("posts.json", JSON.stringify(posts, null, 2));
 
-// ---------- News items (short items, no individual pages) ----------
+function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sourceUrl, image }) {
+  const bannerHtml = image
+    ? `<div class="wrap"><img src="${image}" alt="${title}" class="post-banner reveal"></div>`
+    : "";
+  const sourceHtml = sourceUrl
+    ? `<p><a href="${sourceUrl}" target="_blank" rel="noopener">Source: ${sourceName || "Link"} &rarr;</a></p>`
+    : (sourceName ? `<p class="byline" style="border:none;padding:0;">Source: ${sourceName}</p>` : "");
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title} — Medicine4life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="logo"><svg class="logo-mark" width="22" height="22" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="12"/><path d="M14 8v12M8 14h12"/></svg>Medicine4life</div>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Articles</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<article>
+  <div class="wrap post-header">
+    <div class="tag"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h6l3-9 4 18 3-9h6"/></svg>News</div>
+    <h1>${title}</h1>
+    <div class="byline">Medicine4life · ${dateDisplay}</div>
+  </div>
+
+  ${bannerHtml}
+
+  <div class="wrap post-body">
+    <p>${summary}</p>
+    ${htmlBody}
+    ${sourceHtml}
+  </div>
+
+  <div class="wrap" style="padding-bottom: 60px;">
+    <a class="back-link" href="news.html">&larr; Back to all news</a>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="brand-mark"><svg width="16" height="16" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15h6l3-9 4 18 3-9h6"/></svg>Medicine4life — medical technology, explained clearly</span>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
+`;
+}
+
+// ---------- News items ----------
 const newsFiles = fs.existsSync(newsFolder) ? fs.readdirSync(newsFolder) : [];
 
 const newsItems = newsFiles
   .filter(file => file.endsWith(".md"))
   .map(file => {
     const raw = fs.readFileSync(path.join(newsFolder, file), "utf8");
-    const { data } = parseFrontmatter(raw);
+    const { data, body } = parseFrontmatter(raw);
+
+    const title = data.title || "Untitled";
+    const dateDisplay = formatDate(data.date);
+    const summary = data.summary || "";
+    const image = data.image || "";
+    const htmlBody = body && body.trim() ? marked(body) : "";
+    const slug = file.replace(".md", "");
+    const link = `news-${slug}.html`;
+
+    fs.writeFileSync(link, renderNewsPage({
+      title, dateDisplay, htmlBody, summary, image,
+      sourceName: data.sourceName || "", sourceUrl: data.sourceUrl || ""
+    }));
+
     return {
-      title: data.title || "Untitled",
+      title,
       date: data.date || "",
-      dateDisplay: formatDate(data.date),
-      summary: data.summary || "",
+      dateDisplay,
+      summary,
+      image,
       sourceName: data.sourceName || "",
       sourceUrl: data.sourceUrl || "",
+      link,
     };
   })
   .sort((a, b) => new Date(b.date) - new Date(a.date));

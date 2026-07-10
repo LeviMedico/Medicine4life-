@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Articles — Medicine4life</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
@@ -24,12 +24,22 @@
   </div>
 </header>
 
-<main class="wrap page-body">
-  <h1>Articles</h1>
-  <p>Every post published through the CMS, newest first.</p>
+<main class="wrap">
+  <h1 style="font-family:var(--font-display); font-size:2rem; margin: 30px 0 8px;">Articles</h1>
+  <p style="color:var(--ink-soft); margin-bottom: 20px;">Every post published through the CMS, newest first.</p>
 
-  <div class="section-label" style="margin-top: 12px;">All posts</div>
-  <div id="posts" class="post-list"></div>
+  <div id="featured-slot"></div>
+
+  <div class="filters" id="filters" style="display:none;">
+    <div class="chip active" data-filter="all">All</div>
+    <div class="chip" data-filter="AI Diagnostics">AI Diagnostics</div>
+    <div class="chip" data-filter="Wearables">Wearables</div>
+    <div class="chip" data-filter="Diagnostics">Diagnostics</div>
+    <div class="chip" data-filter="Genomics">Genomics</div>
+  </div>
+
+  <div class="section-label" id="rest-label" style="display:none;">More articles</div>
+  <div id="posts" class="card-grid"></div>
 </main>
 
 <footer class="site-footer">
@@ -51,23 +61,58 @@ const DEFAULT_ICON = ICONS["Diagnostics"];
 fetch('posts.json')
   .then(response => response.json())
   .then(posts => {
+    const featuredSlot = document.getElementById('featured-slot');
     const container = document.getElementById('posts');
+
     if (!posts.length) {
       container.innerHTML = '<p style="padding: 20px 0; color: var(--ink-soft);">No posts yet — write your first one in the CMS.</p>';
       return;
     }
-    container.innerHTML = posts.map(post => {
+
+    const [first, ...rest] = posts;
+    const firstIcon = ICONS[first.tag] || DEFAULT_ICON;
+    featuredSlot.innerHTML = `
+      <a class="featured reveal" href="${first.link}" data-tag="${first.tag || ''}">
+        <div class="featured-img">${first.image ? `<img src="${first.image}" alt="" style="width:100%;height:100%;object-fit:cover;">` : firstIcon}</div>
+        <div class="featured-body">
+          <div class="tag">${firstIcon}${first.tag || 'Diagnostics'}</div>
+          <h2>${first.title}</h2>
+          <p>${first.summary || ''}</p>
+          <div class="meta">${first.readMinutes ? first.readMinutes + ' min read' : ''}${first.dateDisplay ? ' · ' + first.dateDisplay : ''}</div>
+        </div>
+      </a>`;
+
+    if (rest.length) {
+      document.getElementById('filters').style.display = 'flex';
+      document.getElementById('rest-label').style.display = 'block';
+    }
+
+    container.innerHTML = rest.map(post => {
       const icon = ICONS[post.tag] || DEFAULT_ICON;
-      const thumb = post.image ? `<img src="${post.image}" alt="" class="card-thumb">` : '';
+      const thumb = post.image ? `<img src="${post.image}" alt="" style="width:100%;height:100%;object-fit:cover;">` : icon;
       return `
-        <a class="post-card reveal" href="${post.link}">
-          ${thumb}
-          <div class="tag">${icon}${post.tag || 'Diagnostics'}</div>
-          <h2>${post.title}</h2>
-          <p>${post.summary || ''}</p>
-          <div class="meta">${post.readMinutes ? post.readMinutes + ' min read' : ''}${post.dateDisplay ? ' · ' + post.dateDisplay : ''}</div>
+        <a class="grid-card reveal" href="${post.link}" data-tag="${post.tag || ''}">
+          <div class="grid-img">${thumb}</div>
+          <div class="grid-body">
+            <div class="tag">${icon}${post.tag || 'Diagnostics'}</div>
+            <h3>${post.title}</h3>
+            <span>${post.readMinutes ? post.readMinutes + ' min read' : ''}</span>
+          </div>
         </a>`;
     }).join('');
+
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = chip.dataset.filter;
+        document.querySelectorAll('[data-tag]').forEach(card => {
+          const show = filter === 'all' || card.dataset.tag === filter;
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+
     window.initReveal();
   })
   .catch(error => {
