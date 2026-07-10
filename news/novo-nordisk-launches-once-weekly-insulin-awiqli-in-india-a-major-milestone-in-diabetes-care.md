@@ -1,6 +1,5 @@
 ---
-title: "Novo Nordisk Launches Once-Weekly Insulin 'Awiqli' in India: A Major
-  Milestone in Diabetes Care"
+title: Novo Nordisk Launches Once-Weekly Insulin 'Awiqli' in India.
 date: 2026-07-09T13:38:19.026Z
 summary: >
   Novo Nordisk Launches Once-Weekly Insulin 'Awiqli' in India: A Major Milestone
