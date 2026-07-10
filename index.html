@@ -38,55 +38,19 @@
 
 <main class="wrap">
 
-  <a class="featured reveal" href="post-skin-cancer-apps.html" data-tag="Diagnostics">
-    <div class="featured-img">
-      <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7l-7 12a2 2 0 0 0 2 3h14a2 2 0 0 0 2-3l-7-12V3"/><path d="M10 3h8"/><path d="M8 18h12"/></svg>
-    </div>
-    <div class="featured-body">
-      <div class="tag"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7l-7 12a2 2 0 0 0 2 3h14a2 2 0 0 0 2-3l-7-12V3"/><path d="M10 3h8"/><path d="M8 18h12"/></svg>Diagnostics</div>
-      <h2>Skin cancer detection apps: how good are they really?</h2>
-      <p>Should you trust a 30-second phone scan over a dermatologist? Here's what the accuracy studies actually say.</p>
-      <div class="meta">9 min read · Newest</div>
-    </div>
-  </a>
+  <div id="featured-slot"></div>
 
-  <div class="filters">
+  <div class="filters" id="filters" style="display:none;">
     <div class="chip active" data-filter="all">All</div>
     <div class="chip" data-filter="AI Diagnostics">AI Diagnostics</div>
     <div class="chip" data-filter="Wearables">Wearables</div>
     <div class="chip" data-filter="Diagnostics">Diagnostics</div>
+    <div class="chip" data-filter="Genomics">Genomics</div>
   </div>
 
-  <div class="section-label">More from the blog</div>
+  <div class="section-label" id="rest-label" style="display:none;">More from the blog</div>
 
-  <div class="card-grid">
-    <a class="grid-card reveal" href="post-ai-radiology.html" data-tag="AI Diagnostics">
-      <div class="grid-img"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M11 8V5M15 8V5M11 20v3M15 20v3M8 11H5M8 15H5M20 11h3M20 15h3"/></svg></div>
-      <div class="grid-body">
-        <div class="tag"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M11 8V5M15 8V5M11 20v3M15 20v3M8 11H5M8 15H5M20 11h3M20 15h3"/></svg>AI Diagnostics</div>
-        <h3>AI models can read X-rays fast</h3>
-        <span>6 min read</span>
-      </div>
-    </a>
-
-    <a class="grid-card reveal" href="post-glucose-wearables.html" data-tag="Wearables">
-      <div class="grid-img"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="8" width="10" height="12" rx="3"/><path d="M11 8V4h6v4M11 20v4h6v-4"/><circle cx="14" cy="14" r="2"/></svg></div>
-      <div class="grid-body">
-        <div class="tag"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="8" width="10" height="12" rx="3"/><path d="M11 8V4h6v4M11 20v4h6v-4"/><circle cx="14" cy="14" r="2"/></svg>Wearables</div>
-        <h3>Continuous glucose monitors, explained</h3>
-        <span>5 min read</span>
-      </div>
-    </a>
-
-    <a class="grid-card reveal" href="post-crispr-diagnostics.html" data-tag="Diagnostics">
-      <div class="grid-img"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v7l-7 12a2 2 0 0 0 2 3h14a2 2 0 0 0 2-3l-7-12V3"/><path d="M10 3h8"/><path d="M8 18h12"/></svg></div>
-      <div class="grid-body">
-        <div class="tag"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v7l-7 12a2 2 0 0 0 2 3h14a2 2 0 0 0 2-3l-7-12V3"/><path d="M10 3h8"/><path d="M8 18h12"/></svg>Diagnostics</div>
-        <h3>The 15-minute test that could replace the lab</h3>
-        <span>7 min read</span>
-      </div>
-    </a>
-  </div>
+  <div id="posts" class="card-grid"></div>
 
   <div style="text-align:center; margin: 32px 0 10px;">
     <a class="back-link" href="blog.html">See all articles &rarr;</a>
@@ -101,17 +65,78 @@
 </footer>
 
 <script>
-document.querySelectorAll('.chip').forEach(chip => {
-  chip.addEventListener('click', () => {
-    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    const filter = chip.dataset.filter;
-    document.querySelectorAll('[data-tag]').forEach(card => {
-      const show = filter === 'all' || card.dataset.tag === filter;
-      card.style.display = show ? '' : 'none';
+const ICONS = {
+  "AI Diagnostics": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M11 8V5M15 8V5M11 20v3M15 20v3M8 11H5M8 15H5M20 11h3M20 15h3"/></svg>',
+  "Wearables": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="8" width="10" height="12" rx="3"/><path d="M11 8V4h6v4M11 20v4h6v-4"/><circle cx="14" cy="14" r="2"/></svg>',
+  "Diagnostics": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7l-7 12a2 2 0 0 0 2 3h14a2 2 0 0 0 2-3l-7-12V3"/><path d="M10 3h8"/><path d="M8 18h12"/></svg>',
+  "Genomics": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2c9 7 9 7 0 14c9 7 9 7 0 14"/><path d="M20 2c-9 7-9 7 0 14c-9 7-9 7 0 14"/><path d="M8.5 5.5h13M8.5 12.5h13M8.5 15.5h13M8.5 22.5h13"/></svg>'
+};
+const DEFAULT_ICON = ICONS["Diagnostics"];
+
+fetch('posts.json')
+  .then(response => response.json())
+  .then(posts => {
+    const featuredSlot = document.getElementById('featured-slot');
+    const container = document.getElementById('posts');
+
+    if (!posts.length) {
+      featuredSlot.innerHTML = '<p style="padding: 40px 0; color: var(--ink-soft);">No posts yet, write your first one in the CMS and it will show up here.</p>';
+      return;
+    }
+
+    const [first, ...rest] = posts;
+    const restCapped = rest.slice(0, 3);
+    const firstIcon = ICONS[first.tag] || DEFAULT_ICON;
+
+    featuredSlot.innerHTML = `
+      <a class="featured reveal" href="${first.link}" data-tag="${first.tag || ''}">
+        <div class="featured-img">${first.image ? `<img src="${first.image}" alt="" style="width:100%;height:100%;object-fit:cover;">` : firstIcon}</div>
+        <div class="featured-body">
+          <div class="tag">${firstIcon}${first.tag || 'Diagnostics'}</div>
+          <h2>${first.title}</h2>
+          <p>${first.summary || ''}</p>
+          <div class="meta">${first.readMinutes ? first.readMinutes + ' min read' : ''}${first.dateDisplay ? ' · Newest' : ''}</div>
+        </div>
+      </a>`;
+
+    if (restCapped.length) {
+      document.getElementById('filters').style.display = 'flex';
+      document.getElementById('rest-label').style.display = 'block';
+    }
+
+    container.innerHTML = restCapped.map(post => {
+      const icon = ICONS[post.tag] || DEFAULT_ICON;
+      const thumb = post.image ? `<img src="${post.image}" alt="" style="width:100%;height:100%;object-fit:cover;">` : icon;
+      return `
+        <a class="grid-card reveal" href="${post.link}" data-tag="${post.tag || ''}">
+          <div class="grid-img">${thumb}</div>
+          <div class="grid-body">
+            <div class="tag">${icon}${post.tag || 'Diagnostics'}</div>
+            <h3>${post.title}</h3>
+            <span>${post.readMinutes ? post.readMinutes + ' min read' : ''}</span>
+          </div>
+        </a>`;
+    }).join('');
+
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = chip.dataset.filter;
+        document.querySelectorAll('[data-tag]').forEach(card => {
+          const show = filter === 'all' || card.dataset.tag === filter;
+          card.style.display = show ? '' : 'none';
+        });
+      });
     });
+
+    window.initReveal();
+  })
+  .catch(error => {
+    document.getElementById('featured-slot').innerHTML =
+      '<p style="padding: 40px 0; color: var(--ink-soft);">Unable to load posts right now.</p>';
+    console.error(error);
   });
-});
 </script>
 <script src="script.js" defer></script>
 </body>

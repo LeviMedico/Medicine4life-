@@ -1,5 +1,15 @@
 [
   {
+    "title": "Skin cancer detection apps: how good are they really — and should you trust one over a dermatologist?",
+    "date": "2026-07-09T09:00:00.000Z",
+    "dateDisplay": "July 9, 2026",
+    "tag": "Diagnostics",
+    "summary": "Should you trust a 30-second phone scan over a dermatologist? Here's what the accuracy studies actually say.",
+    "readMinutes": 5,
+    "image": "",
+    "link": "post-skin-cancer-apps.html"
+  },
+  {
     "title": "3D Bioprinting of Human Organs: Can We Replace Transplants?",
     "date": "2026-07-09T03:04:32.914Z",
     "dateDisplay": "July 9, 2026",
@@ -8,5 +18,35 @@
     "readMinutes": 4,
     "image": "",
     "link": "3d-bioprinting-of-human-organs-can-we-replace-transplants.html"
+  },
+  {
+    "title": "AI models can read X-rays fast. Should they read them alone?",
+    "date": "2026-07-08T09:00:00.000Z",
+    "dateDisplay": "July 8, 2026",
+    "tag": "AI Diagnostics",
+    "summary": "A look at what the accuracy numbers actually mean once you account for how radiologists work in practice.",
+    "readMinutes": 1,
+    "image": "",
+    "link": "post-ai-radiology.html"
+  },
+  {
+    "title": "Continuous glucose monitors are coming for people without diabetes",
+    "date": "2026-07-02T09:00:00.000Z",
+    "dateDisplay": "July 2, 2026",
+    "tag": "Wearables",
+    "summary": "Why metabolic wearables are moving into general wellness — and what the evidence does and doesn't support.",
+    "readMinutes": 1,
+    "image": "",
+    "link": "post-glucose-wearables.html"
+  },
+  {
+    "title": "The 15-minute test that could replace the lab",
+    "date": "2026-06-24T09:00:00.000Z",
+    "dateDisplay": "June 24, 2026",
+    "tag": "Diagnostics",
+    "summary": "CRISPR-based diagnostics are edging toward the clinic. Here's the case for cautious optimism.",
+    "readMinutes": 1,
+    "image": "",
+    "link": "post-crispr-diagnostics.html"
   }
 ]
