@@ -1,8 +1,11 @@
 ---
-title: "Skin cancer detection apps: how good are they really — and should you trust one over a dermatologist?"
+title: "Skin cancer detection apps: how good are they really — and should you
+  trust one over a dermatologist?"
 date: 2026-07-09T09:00:00.000Z
-tag: "Diagnostics"
-summary: "Should you trust a 30-second phone scan over a dermatologist? Here's what the accuracy studies actually say."
+tag: Diagnostics
+summary: Should you trust a 30-second phone scan over a dermatologist? Here's
+  what the accuracy studies actually say.
+image: /images/uploads/381.jpg
 ---
 A phone scan takes thirty seconds. A dermatologist appointment can take weeks to book and ten minutes once you're in the room. So it's no surprise that skin-check apps — point your camera at a mole, get an instant risk score — have become genuinely popular. Skin cancer is also the most commonly diagnosed cancer type, and melanoma specifically goes from highly treatable to life-threatening based almost entirely on how early it's caught. That combination of convenience and stakes is exactly why it's worth looking past the app store rating and into what these tools actually get right and wrong.
 
