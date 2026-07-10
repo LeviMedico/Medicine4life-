@@ -12,18 +12,18 @@ Most consumer apps use a neural network trained on large libraries of labeled mo
 
 <div style="margin: 36px 0; text-align: center;">
   <svg width="220" height="200" viewBox="0 0 260 220" fill="none" role="img" aria-label="Illustration of a smartphone with a scanning frame around a mole on screen" style="max-width: 100%; height: auto;">
-    <rect x="80" y="15" width="100" height="190" rx="16" stroke="#201A14" stroke-width="2"/>
-    <rect x="92" y="32" width="76" height="146" rx="4" fill="#FBF1E4" stroke="#E9DDC9" stroke-width="1"/>
-    <rect x="118" y="22" width="24" height="4" rx="2" fill="#201A14"/>
-    <circle cx="130" cy="105" r="16" fill="#8A6A4E" opacity="0.55"/>
-    <circle cx="130" cy="105" r="16" stroke="#6B5D4F" stroke-width="1.2"/>
-    <g stroke="#D9682E" stroke-width="2.5" stroke-linecap="round">
+    <rect x="80" y="15" width="100" height="190" rx="16" stroke="#16211C" stroke-width="2"/>
+    <rect x="92" y="32" width="76" height="146" rx="4" fill="#EAF7F2" stroke="#DCEAE3" stroke-width="1"/>
+    <rect x="118" y="22" width="24" height="4" rx="2" fill="#16211C"/>
+    <circle cx="130" cy="105" r="16" fill="#3D9E7C" opacity="0.55"/>
+    <circle cx="130" cy="105" r="16" stroke="#5C6B64" stroke-width="1.2"/>
+    <g stroke="#24B88C" stroke-width="2.5" stroke-linecap="round">
       <path d="M104 79 v-8 h8"/>
       <path d="M156 79 v-8 h-8"/>
       <path d="M104 131 v8 h8"/>
       <path d="M156 131 v8 h-8"/>
     </g>
-    <rect x="112" y="188" width="36" height="4" rx="2" fill="#201A14"/>
+    <rect x="112" y="188" width="36" height="4" rx="2" fill="#16211C"/>
   </svg>
 </div>
 
@@ -45,16 +45,16 @@ The strongest results in the research aren't from home-use selfie apps at all â€
 
 <div style="margin: 36px 0; text-align: center;">
   <svg width="220" height="190" viewBox="0 0 260 220" fill="none" role="img" aria-label="Illustration of a balance scale weighing a phone icon against a medical cross, tipped toward the medical cross">
-    <line x1="130" y1="60" x2="130" y2="195" stroke="#201A14" stroke-width="2"/>
-    <path d="M110 195h40" stroke="#201A14" stroke-width="2" stroke-linecap="round"/>
-    <path d="M25 78 L235 55" stroke="#201A14" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="130" cy="66" r="5" fill="#201A14"/>
-    <path d="M30 80 L20 118 M30 80 L40 118" stroke="#6B5D4F" stroke-width="1.4"/>
-    <rect x="8" y="118" width="26" height="20" rx="4" stroke="#D9682E" stroke-width="1.8"/>
-    <line x1="12" y1="132" x2="20" y2="132" stroke="#D9682E" stroke-width="1.8" stroke-linecap="round"/>
-    <path d="M230 57 L218 96 M230 57 L240 96" stroke="#6B5D4F" stroke-width="1.4"/>
-    <circle cx="228" cy="108" r="14" stroke="#D9682E" stroke-width="1.8"/>
-    <path d="M228 102v12M222 108h12" stroke="#D9682E" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="130" y1="60" x2="130" y2="195" stroke="#16211C" stroke-width="2"/>
+    <path d="M110 195h40" stroke="#16211C" stroke-width="2" stroke-linecap="round"/>
+    <path d="M25 78 L235 55" stroke="#16211C" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="130" cy="66" r="5" fill="#16211C"/>
+    <path d="M30 80 L20 118 M30 80 L40 118" stroke="#5C6B64" stroke-width="1.4"/>
+    <rect x="8" y="118" width="26" height="20" rx="4" stroke="#24B88C" stroke-width="1.8"/>
+    <line x1="12" y1="132" x2="20" y2="132" stroke="#24B88C" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M230 57 L218 96 M230 57 L240 96" stroke="#5C6B64" stroke-width="1.4"/>
+    <circle cx="228" cy="108" r="14" stroke="#24B88C" stroke-width="1.8"/>
+    <path d="M228 102v12M222 108h12" stroke="#24B88C" stroke-width="1.8" stroke-linecap="round"/>
   </svg>
 </div>
 

@@ -1,6 +1,8 @@
 ---
 title: "3D Bioprinting of Human Organs: Can We Replace Transplants?"
 date: 2026-07-09T03:04:32.914Z
+tag: "Genomics"
+summary: "3D bioprinting is closing in on real tissue repair — but a fully transplantable printed organ is still years away. Here's why."
 ---
 Introduction
 
