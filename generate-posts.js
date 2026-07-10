@@ -20,13 +20,34 @@ function parseFrontmatter(raw) {
 
   const [, frontmatterBlock, body] = match;
   const data = {};
-  frontmatterBlock.split("\n").forEach(line => {
+  const lines = frontmatterBlock.split("\n");
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
     const lineMatch = line.match(/^([A-Za-z0-9_]+):\s*(.*)$/);
-    if (!lineMatch) return;
-    let [, key, value] = lineMatch;
-    value = value.trim().replace(/^"(.*)"$/, "$1");
-    data[key] = value;
-  });
+    if (!lineMatch) { i++; continue; }
+
+    const [, key, rawValue] = lineMatch;
+    const trimmedValue = rawValue.trim();
+
+    if (trimmedValue === ">" || trimmedValue === ">-" || trimmedValue === "|" || trimmedValue === "|-") {
+      // YAML block scalar: collect subsequent indented lines
+      const folded = trimmedValue.startsWith(">");
+      const collected = [];
+      i++;
+      while (i < lines.length && (lines[i].startsWith("  ") || lines[i].trim() === "")) {
+        collected.push(lines[i].replace(/^  /, ""));
+        i++;
+      }
+      // remove trailing blank lines
+      while (collected.length && collected[collected.length - 1].trim() === "") collected.pop();
+      data[key] = folded ? collected.join(" ").replace(/\s+/g, " ").trim() : collected.join("\n").trim();
+    } else {
+      data[key] = trimmedValue.replace(/^"(.*)"$/, "$1");
+      i++;
+    }
+  }
   return { data, body: body.trim() };
 }
 
@@ -56,13 +77,15 @@ function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image }) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="images/favicon-32.png">
+<link rel="apple-touch-icon" href="images/favicon-180.png">
 <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body>
 
 <header class="site-header">
   <div class="wrap">
-    <div class="logo"><svg class="logo-mark" width="22" height="22" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="12"/><path d="M14 8v12M8 14h12"/></svg>Medicine4life</div>
+    <div class="logo"><a href="index.html" style="display:flex;"><img src="images/logo.png" alt="Medicine4life"></a></div>
     <nav class="site-nav">
       <a href="index.html">Home</a>
       <a href="blog.html">Articles</a>
@@ -159,13 +182,15 @@ function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sou
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="images/favicon-32.png">
+<link rel="apple-touch-icon" href="images/favicon-180.png">
 <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body>
 
 <header class="site-header">
   <div class="wrap">
-    <div class="logo"><svg class="logo-mark" width="22" height="22" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="12"/><path d="M14 8v12M8 14h12"/></svg>Medicine4life</div>
+    <div class="logo"><a href="index.html" style="display:flex;"><img src="images/logo.png" alt="Medicine4life"></a></div>
     <nav class="site-nav">
       <a href="index.html">Home</a>
       <a href="blog.html">Articles</a>
