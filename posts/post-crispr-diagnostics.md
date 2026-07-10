@@ -1,8 +1,11 @@
 ---
-title: "The 15-minute test that could replace the lab"
+title: The 15-minute test that could replace the lab
 date: 2026-06-24T09:00:00.000Z
-tag: "Diagnostics"
-summary: "CRISPR-based diagnostics are edging toward the clinic. Here's the case for cautious optimism."
+tag: Diagnostics
+summary: CRISPR-based diagnostics are edging toward the clinic. Here's the case
+  for cautious optimism.
+author: "Sushil Dethaliya "
+image: /images/uploads/424.jpg
 ---
 Standard PCR testing is accurate, but it's slow by design — samples get batched, run, and confirmed in a way that favors precision over speed. CRISPR-based diagnostic platforms are built around a different trade-off: near-PCR accuracy, delivered in minutes, on a device small enough for a clinic countertop rather than a reference lab.
 
