@@ -1,8 +1,11 @@
 ---
-title: "AI models can read X-rays fast. Should they read them alone?"
+title: AI models can read X-rays fast. Should they read them alone?
 date: 2026-07-08T09:00:00.000Z
-tag: "AI Diagnostics"
-summary: "A look at what the accuracy numbers actually mean once you account for how radiologists work in practice."
+tag: AI Diagnostics
+summary: A look at what the accuracy numbers actually mean once you account for
+  how radiologists work in practice.
+author: "Sushil Dethaliya "
+image: /images/uploads/420.png
 ---
 Over the past two years, a wave of imaging models has posted accuracy numbers that, on paper, match or beat average radiologist performance on specific tasks — spotting a fracture, flagging a nodule, triaging a chest film for urgency. Vendors like to lead with those numbers. What they mention less is what "accuracy" was measured against.
 
