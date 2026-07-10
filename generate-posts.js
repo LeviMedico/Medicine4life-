@@ -63,7 +63,7 @@ function estimateReadTime(text) {
   return Math.max(1, Math.round(words / 200));
 }
 
-function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image }) {
+function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author }) {
   const bannerHtml = image
     ? `<div class="wrap"><img src="${image}" alt="${title}" class="post-banner reveal"></div>`
     : "";
@@ -100,7 +100,7 @@ function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image }) {
   <div class="wrap post-header">
     <div class="tag">${icon}${tag}</div>
     <h1>${title}</h1>
-    <div class="byline">Medicine4life · ${dateDisplay}</div>
+    <div class="byline">${author || "Medicine4life"} · ${dateDisplay}</div>
   </div>
 
   ${bannerHtml}
@@ -141,6 +141,7 @@ const posts = postFiles
     const icon = ICONS[tag] || DEFAULT_ICON;
     const dateDisplay = formatDate(data.date);
     const image = data.image || "";
+    const author = data.author || "";
     const summary = data.summary || body.split("\n").find(l => l.trim().length > 0) || "";
     const readMinutes = estimateReadTime(body);
 
@@ -148,7 +149,7 @@ const posts = postFiles
     const slug = file.replace(".md", "");
     const link = `${slug}.html`;
 
-    fs.writeFileSync(link, renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image }));
+    fs.writeFileSync(link, renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author }));
 
     return {
       title,
@@ -165,7 +166,7 @@ const posts = postFiles
 
 fs.writeFileSync("posts.json", JSON.stringify(posts, null, 2));
 
-function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sourceUrl, image }) {
+function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sourceUrl, image, author }) {
   const bannerHtml = image
     ? `<div class="wrap"><img src="${image}" alt="${title}" class="post-banner reveal"></div>`
     : "";
@@ -205,7 +206,7 @@ function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sou
   <div class="wrap post-header">
     <div class="tag"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h6l3-9 4 18 3-9h6"/></svg>News</div>
     <h1>${title}</h1>
-    <div class="byline">Medicine4life · ${dateDisplay}</div>
+    <div class="byline">${author || "Medicine4life"} · ${dateDisplay}</div>
   </div>
 
   ${bannerHtml}
