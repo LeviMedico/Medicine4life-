@@ -3,11 +3,8 @@ title: "Novo Nordisk Launches Once-Weekly Insulin 'Awiqli' in India: A Major
   Milestone in Diabetes Care"
 date: 2026-07-09T13:38:19.026Z
 summary: >
-  In a significant advancement for diabetes management, Novo Nordisk has
-  officially launched Awiqli (insulin icodec) in India, introducing the
-  country's first once-weekly basal insulin therapy. The launch offers a new
-  treatment option for adults with diabetes who require long-acting insulin and
-  has the potential to reduce the burden of daily injections.
+  Novo Nordisk Launches Once-Weekly Insulin 'Awiqli' in India: A Major Milestone
+  in Diabetes Care.
 image: /images/uploads/287.avif
 ---
 ## *In a significant advancement for diabetes management, Novo Nordisk has officially launched Awiqli (insulin icodec) in India, introducing the country's first once-weekly basal insulin therapy. The launch offers a new treatment option for adults with diabetes who require long-acting insulin and has the potential to reduce the burden of daily injection*s.
