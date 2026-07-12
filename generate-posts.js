@@ -79,6 +79,8 @@ function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author
     gtag('js', new Date());
     gtag('config', 'G-3611MH8QQQ');
   </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2371873453043295"
+     crossorigin="anonymous"></script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -200,6 +202,8 @@ function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sou
     gtag('js', new Date());
     gtag('config', 'G-3611MH8QQQ');
   </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2371873453043295"
+     crossorigin="anonymous"></script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
