@@ -44,8 +44,19 @@ function parseFrontmatter(raw) {
       while (collected.length && collected[collected.length - 1].trim() === "") collected.pop();
       data[key] = folded ? collected.join(" ").replace(/\s+/g, " ").trim() : collected.join("\n").trim();
     } else {
-      data[key] = trimmedValue.replace(/^"(.*)"$/, "$1");
+      const collected = [trimmedValue.replace(/^"(.*)"$/, "$1")];
       i++;
+      // Support plain wrapped values: subsequent indented lines that aren't "key: value" continue this value
+      while (
+        i < lines.length &&
+        lines[i].startsWith("  ") &&
+        lines[i].trim() !== "" &&
+        !/^\s*[A-Za-z0-9_]+:\s/.test(lines[i])
+      ) {
+        collected.push(lines[i].trim());
+        i++;
+      }
+      data[key] = collected.join(" ").replace(/\s+/g, " ").trim();
     }
   }
   return { data, body: body.trim() };
