@@ -74,7 +74,7 @@ function estimateReadTime(text) {
   return Math.max(1, Math.round(words / 200));
 }
 
-function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author }) {
+function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author, summary }) {
   const bannerHtml = image
     ? `<div class="wrap"><img src="${image}" alt="${title}" class="post-banner reveal"></div>`
     : "";
@@ -96,6 +96,10 @@ function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title} — Medicine4life</title>
+<meta name="description" content="${summary.replace(/"/g, '&quot;')}">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${summary.replace(/"/g, '&quot;')}">
+<meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -177,7 +181,7 @@ const posts = postFiles
     const slug = file.replace(".md", "");
     const link = `${slug}.html`;
 
-    fs.writeFileSync(link, renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author }));
+    fs.writeFileSync(link, renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author, summary }));
 
     return {
       title,
@@ -219,6 +223,10 @@ function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sou
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title} — Medicine4life</title>
+<meta name="description" content="${summary.replace(/"/g, '&quot;')}">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${summary.replace(/"/g, '&quot;')}">
+<meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
