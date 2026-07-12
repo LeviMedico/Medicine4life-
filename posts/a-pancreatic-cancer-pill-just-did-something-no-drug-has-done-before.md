@@ -5,6 +5,7 @@ tag: Diagnostics
 summary: A new pill nearly doubled survival for advanced pancreatic cancer
   patients in a landmark trial — here's what the data actually shows.
 author: "Sushil Dethaliya "
+image: /images/uploads/808.jpg
 ---
 Pancreatic cancer has a reputation doctors don't sugarcoat: by the time most people are diagnosed, the disease has usually spread, and treatment options are limited. A new pill just changed one of the most stubborn numbers in oncology — how long patients actually survive.
 The drug, daraxonrasib, comes from Revolution Medicines and works differently from standard chemotherapy. Instead of broadly attacking fast-dividing cells, it targets RAS — a family of proteins that, when mutated, act like a stuck accelerator pedal telling cancer cells to keep growing. Most pancreatic tumors carry a RAS mutation, which is part of why the disease is so hard to treat and why a drug built specifically to block it is a meaningful departure from business as usual.
