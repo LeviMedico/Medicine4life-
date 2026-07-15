@@ -7,7 +7,7 @@ summary: AstraZeneca and Ionis’ Wainua (eplontersen) failed its Phase 3 ATTR-C
   heart disease trial. Learn how the drug works, why the trial failed, and what
   it means for future cardiac therapies.
 author: "Sushil Dethaliya "
-image: /images/uploads/882.jpg
+image: /images/uploads/881.jpg
 ---
 
 
