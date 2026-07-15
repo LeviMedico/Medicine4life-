@@ -17,7 +17,7 @@
 <title>Glossary — Medicine4life</title>
 <meta name="description" content="Plain-language definitions of medical technology and research terms used across Medicine4life.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display&family=Arimo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="images/favicon-32.png">
 <link rel="apple-touch-icon" href="images/favicon-180.png">
@@ -25,7 +25,9 @@
 <style>
   .glossary-entry { padding: 20px 0; border-bottom: 1px solid var(--line); }
   .glossary-entry:last-child { border-bottom: none; }
-  .glossary-term { font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 6px; }
+  .glossary-term-row { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .glossary-thumb { width: 40px; height: 40px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+  .glossary-term { font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 0; }
   .glossary-def { color: var(--ink-soft); line-height: 1.6; }
   .glossary-letter { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--signal); margin-top: 36px; margin-bottom: 4px; text-transform: uppercase; }
   .glossary-letter:first-child { margin-top: 0; }
@@ -56,47 +58,74 @@
 
   <div class="glossary-letter">B</div>
   <div class="glossary-entry">
-    <div class="glossary-term">Biomarker</div>
+    <div class="glossary-term-row">
+      
+      <div class="glossary-term">Biomarker</div>
+    </div>
     <div class="glossary-def">A measurable substance or signal in the body — like a blood protein, genetic marker, or vital sign — used to indicate the presence of a disease, how it's progressing, or how well a treatment is working.</div>
   </div>
 <div class="glossary-letter">C</div>
   <div class="glossary-entry">
-    <div class="glossary-term">Clinical trial phases (Phase 1/2/3)</div>
+    <div class="glossary-term-row">
+      
+      <div class="glossary-term">Clinical trial phases (Phase 1/2/3)</div>
+    </div>
     <div class="glossary-def">The staged process a new drug or device goes through before approval. Phase 1 tests safety in a small group; Phase 2 tests effectiveness and dosing in a larger group; Phase 3 is a large-scale trial comparing the treatment against a standard option, and is generally required before regulatory approval.</div>
   </div>
 
   <div class="glossary-entry">
-    <div class="glossary-term">CRISPR</div>
+    <div class="glossary-term-row">
+      
+      <div class="glossary-term">CRISPR</div>
+    </div>
     <div class="glossary-def">A gene-editing technology that lets scientists precisely cut and modify specific sequences of DNA, most often described using the "molecular scissors" analogy. Used both in research and, increasingly, in approved therapies for genetic diseases.</div>
   </div>
 <div class="glossary-letter">G</div>
   <div class="glossary-entry">
-    <div class="glossary-term">GLP-1 (drug class)</div>
+    <div class="glossary-term-row">
+      
+      <div class="glossary-term">GLP-1 (drug class)</div>
+    </div>
     <div class="glossary-def">A class of medications — including semaglutide (Ozempic, Wegovy) and tirzepatide (Mounjaro, Zepbound) — originally developed for type 2 diabetes, which slow digestion and reduce appetite, leading to significant weight loss.</div>
   </div>
 <div class="glossary-letter">M</div>
   <div class="glossary-entry">
-    <div class="glossary-term">Median survival</div>
+    <div class="glossary-term-row">
+      
+      <div class="glossary-term">Median survival</div>
+    </div>
     <div class="glossary-def">In a clinical trial, the point at which half of the participants have died and half are still alive. It's a standard way to compare how long people typically survive on one treatment versus another.</div>
   </div>
 <div class="glossary-letter">P</div>
   <div class="glossary-entry">
-    <div class="glossary-term">Pharmacogenomics</div>
+    <div class="glossary-term-row">
+      
+      <div class="glossary-term">Pharmacogenomics</div>
+    </div>
     <div class="glossary-def">The study of how a person's genes affect their response to drugs — including how quickly they metabolize a medication and whether they're likely to experience side effects or reduced effectiveness at a standard dose.</div>
   </div>
 <div class="glossary-letter">R</div>
   <div class="glossary-entry">
-    <div class="glossary-term">RAS mutation</div>
+    <div class="glossary-term-row">
+      
+      <div class="glossary-term">RAS mutation</div>
+    </div>
     <div class="glossary-def">A change in the RAS family of genes that causes cells to receive a constant "keep growing" signal. RAS mutations drive a significant share of cancers, including most pancreatic cancers, and are a major target for newer targeted cancer drugs.</div>
   </div>
 
   <div class="glossary-entry">
-    <div class="glossary-term">REDs (Relative Energy Deficiency in Sport)</div>
+    <div class="glossary-term-row">
+      
+      <div class="glossary-term">REDs (Relative Energy Deficiency in Sport)</div>
+    </div>
     <div class="glossary-def">A condition where an athlete's energy intake doesn't meet the demands of training, leading to effects like impaired menstrual function, reduced bone density, and slower recovery — independent of body weight or visible weight loss.</div>
   </div>
 <div class="glossary-letter">T</div>
   <div class="glossary-entry">
-    <div class="glossary-term">Targeted therapy</div>
+    <div class="glossary-term-row">
+      
+      <div class="glossary-term">Targeted therapy</div>
+    </div>
     <div class="glossary-def">A treatment designed to act on a specific molecule or pathway driving a disease — as opposed to older treatments like traditional chemotherapy, which broadly affect fast-dividing cells regardless of the underlying cause.</div>
   </div>
 </main>

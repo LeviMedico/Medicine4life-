@@ -103,7 +103,7 @@ function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author
 <meta property="og:description" content="${summary.replace(/"/g, '&quot;')}">
 <meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display&family=Arimo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="images/favicon-32.png">
 <link rel="apple-touch-icon" href="images/favicon-180.png">
@@ -235,7 +235,7 @@ function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sou
 <meta property="og:description" content="${summary.replace(/"/g, '&quot;')}">
 <meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display&family=Arimo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="images/favicon-32.png">
 <link rel="apple-touch-icon" href="images/favicon-180.png">
@@ -310,7 +310,10 @@ function renderGlossaryPage(entries) {
     lastLetter = letter;
     return `${letterHtml}
   <div class="glossary-entry">
-    <div class="glossary-term">${e.term}</div>
+    <div class="glossary-term-row">
+      ${e.image ? `<img src="${e.image}" alt="${e.term}" class="glossary-thumb">` : ""}
+      <div class="glossary-term">${e.term}</div>
+    </div>
     <div class="glossary-def">${e.definition}</div>
   </div>`;
   }).join("\n");
@@ -334,7 +337,7 @@ function renderGlossaryPage(entries) {
 <title>Glossary — Medicine4life</title>
 <meta name="description" content="Plain-language definitions of medical technology and research terms used across Medicine4life.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display&family=Arimo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="images/favicon-32.png">
 <link rel="apple-touch-icon" href="images/favicon-180.png">
@@ -342,7 +345,9 @@ function renderGlossaryPage(entries) {
 <style>
   .glossary-entry { padding: 20px 0; border-bottom: 1px solid var(--line); }
   .glossary-entry:last-child { border-bottom: none; }
-  .glossary-term { font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 6px; }
+  .glossary-term-row { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .glossary-thumb { width: 40px; height: 40px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+  .glossary-term { font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 0; }
   .glossary-def { color: var(--ink-soft); line-height: 1.6; }
   .glossary-letter { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--signal); margin-top: 36px; margin-bottom: 4px; text-transform: uppercase; }
   .glossary-letter:first-child { margin-top: 0; }
@@ -399,6 +404,7 @@ function renderDiseaseLibraryPage(entries) {
   const sorted = [...entries].sort((a, b) => a.name.localeCompare(b.name));
   const cardsHtml = sorted.map(d => `
   <div class="disease-card">
+    ${d.image ? `<img src="${d.image}" alt="${d.name}" class="disease-image">` : ""}
     <div class="disease-name">${d.name}</div>
     <div class="disease-section-label">Overview</div>
     <div class="disease-text">${d.overview}</div>
@@ -427,13 +433,14 @@ function renderDiseaseLibraryPage(entries) {
 <title>Disease Library — Medicine4life</title>
 <meta name="description" content="General, plain-language overviews of diseases and conditions covered across Medicine4life articles — not a substitute for medical advice.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display&family=Arimo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="images/favicon-32.png">
 <link rel="apple-touch-icon" href="images/favicon-180.png">
 <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 <style>
   .disease-card { padding: 24px 0; border-bottom: 1px solid var(--line); }
+  .disease-image { width: 100%; max-height: 280px; object-fit: cover; border-radius: 8px; margin-bottom: 16px; }
   .disease-card:last-child { border-bottom: none; }
   .disease-name { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 10px; }
   .disease-section-label { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--signal); margin-top: 14px; margin-bottom: 4px; }
@@ -543,6 +550,7 @@ const glossaryEntries = glossaryFiles
     return {
       term: data.term || "Untitled",
       definition: data.definition || "",
+      image: data.image || "",
     };
   });
 
@@ -563,8 +571,39 @@ const diseaseEntries = diseaseFiles
       overview: data.overview || "",
       whyItMatters: data.whyItMatters || "",
       treatment: data.treatment || "",
+      image: data.image || "",
     };
   });
 
 fs.writeFileSync("disease-library.html", renderDiseaseLibraryPage(diseaseEntries));
 console.log(`Generated disease-library.html (${diseaseEntries.length} entr${diseaseEntries.length === 1 ? "y" : "ies"})`);
+
+// ---------- Typography (CMS-controlled site fonts) ----------
+const FONT_STACKS = {
+  "Libre Baskerville": '"Libre Baskerville", Georgia, serif',
+  "Playfair Display": '"Playfair Display", Georgia, serif',
+  "Merriweather": '"Merriweather", Georgia, serif',
+  "Lora": '"Lora", Georgia, serif',
+  "Fraunces": '"Fraunces", Georgia, serif',
+  "DM Serif Display": '"DM Serif Display", Georgia, serif',
+  "Arimo": '"Arimo", -apple-system, sans-serif',
+  "Inter": '"Inter", -apple-system, sans-serif',
+  "Source Sans 3": '"Source Sans 3", -apple-system, sans-serif',
+  "Work Sans": '"Work Sans", -apple-system, sans-serif',
+  "Nunito Sans": '"Nunito Sans", -apple-system, sans-serif',
+};
+
+const typographySettingsPath = "settings/typography.json";
+if (fs.existsSync(typographySettingsPath) && fs.existsSync("style.css")) {
+  const settings = JSON.parse(fs.readFileSync(typographySettingsPath, "utf8"));
+  const headingStack = FONT_STACKS[settings.headingFont] || FONT_STACKS["Libre Baskerville"];
+  const bodyStack = FONT_STACKS[settings.bodyFont] || FONT_STACKS["Arimo"];
+
+  let css = fs.readFileSync("style.css", "utf8");
+  css = css.replace(/--font-display:\s*[^;]+;/, `--font-display: ${headingStack};`);
+  css = css.replace(/--font-body:\s*[^;]+;/, `--font-body: ${bodyStack};`);
+  fs.writeFileSync("style.css", css);
+  console.log(`Applied typography: heading = ${settings.headingFont}, body = ${settings.bodyFont}`);
+} else {
+  console.log("No typography settings found — skipping font update.");
+}
