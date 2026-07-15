@@ -45,6 +45,7 @@ collections:
     fields:
       - {label: "Term", name: "term", widget: "string"}
       - {label: "Definition", name: "definition", widget: "text"}
+      - {label: "Image (optional)", name: "image", widget: "image", required: false, hint: "Small illustrative image or diagram shown next to the term."}
 
   - name: "diseases"
     label: "Disease Library"
@@ -56,3 +57,14 @@ collections:
       - {label: "Overview", name: "overview", widget: "text"}
       - {label: "Why It Matters", name: "whyItMatters", widget: "text"}
       - {label: "Current Treatment Landscape", name: "treatment", widget: "text"}
+      - {label: "Image (optional)", name: "image", widget: "image", required: false, hint: "Shown at the top of this entry's card."}
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "typography"
+        label: "Typography"
+        file: "settings/typography.json"
+        fields:
+          - {label: "Heading Font", name: "headingFont", widget: "select", options: ["Libre Baskerville", "Playfair Display", "Merriweather", "Lora", "Fraunces", "DM Serif Display"], default: "Libre Baskerville", hint: "Used for titles and headings site-wide."}
+          - {label: "Body Font", name: "bodyFont", widget: "select", options: ["Arimo", "Inter", "Source Sans 3", "Work Sans", "Nunito Sans"], default: "Arimo", hint: "Used for all paragraph and body text site-wide."}
