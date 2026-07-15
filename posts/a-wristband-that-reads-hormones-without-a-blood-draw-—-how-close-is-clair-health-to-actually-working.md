@@ -7,7 +7,7 @@ summary: A Stanford-founded startup raised $11.6M for a wearable that claims to
   track estrogen, progesterone, and cycle phase using sensors alone. Here's what
   the device can and can't actually tell you yet.
 author: "Sushil Dethaliya "
-image: /images/uploads/920.png
+image: /images/uploads/922.png
 ---
 *Most wearables that touch women's health are add-ons — a period tracker bolted onto a device originally built to count steps and measure sleep. Clair Health, a startup founded by two recent Stanford graduates, is pitching something different: a wrist-worn device built from the ground up around the hormonal cycle, rather than around a generic fitness-tracking chassis. The company just closed an $11.6 million seed round led by Khosla Ventures, with backers including 23andMe co-founder Anne Wojcicki, and plans to ship its first units in November*.
 
