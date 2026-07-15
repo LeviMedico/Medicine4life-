@@ -101,6 +101,16 @@ img { max-width: 100%; display: block; }
 }
 .site-nav a:hover::after, .site-nav a.active::after { width: 100%; }
 .site-nav a:hover, .site-nav a.active { color: var(--ink); text-decoration: none; }
+.site-nav a:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 12px;
+  background: var(--line);
+}
 
 /* ===== Hero ===== */
 .hero {
@@ -624,6 +634,7 @@ img { max-width: 100%; display: block; }
   }
   .site-nav::-webkit-scrollbar { display: none; }
   .site-nav a { white-space: nowrap; flex-shrink: 0; }
+  .site-nav a:not(:first-child)::before { left: -10px; }
 }
 
 /* ===== Extra breathing room on phones ===== */
