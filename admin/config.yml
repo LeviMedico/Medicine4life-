@@ -17,7 +17,7 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Category", name: "tag", widget: "select", options: ["AI Diagnostics", "Wearables", "Diagnostics", "Genomics"], default: "Diagnostics"}
+      - {label: "Category", name: "tag", widget: "select", options: ["AI Diagnostics", "Wearables", "Diagnostics", "Genomics", "The Basics", "Student Corner"], default: "Diagnostics"}
       - {label: "Summary (shown on homepage/article list)", name: "summary", widget: "string", required: false}
       - {label: "Author", name: "author", widget: "string", required: false, default: "Medicine4life", hint: "Shown in the byline under the title."}
       - {label: "Featured Image", name: "image", widget: "image", required: false, hint: "Shows at the top of the article and as the card thumbnail."}
@@ -36,3 +36,23 @@ collections:
       - {label: "Full details (optional, shown when someone opens the item)", name: "body", widget: "markdown", required: false}
       - {label: "Source name (optional)", name: "sourceName", widget: "string", required: false}
       - {label: "Source link (optional)", name: "sourceUrl", widget: "string", required: false}
+
+  - name: "glossary"
+    label: "Glossary"
+    folder: "glossary"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Term", name: "term", widget: "string"}
+      - {label: "Definition", name: "definition", widget: "text"}
+
+  - name: "diseases"
+    label: "Disease Library"
+    folder: "diseases"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Disease Name", name: "name", widget: "string"}
+      - {label: "Overview", name: "overview", widget: "text"}
+      - {label: "Why It Matters", name: "whyItMatters", widget: "text"}
+      - {label: "Current Treatment Landscape", name: "treatment", widget: "text"}
