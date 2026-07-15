@@ -14,7 +14,8 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Articles — Medicine4life</title>
+<title>Student Corner — Medicine4life</title>
+<meta name="description" content="Practical, exam-adjacent, and clinically-minded posts written for med students, by a med student.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -29,10 +30,10 @@
     <div class="logo"><a href="index.html" style="display:flex;"><img src="images/logo.png" alt="Medicine4life"></a></div>
     <nav class="site-nav">
       <a href="index.html">Home</a>
-      <a href="blog.html" class="active">Articles</a>
+      <a href="blog.html">Articles</a>
       <a href="news.html">News</a>
       <a href="the-basics.html">The Basics</a>
-      <a href="student-corner.html">Student Corner</a>
+      <a href="student-corner.html" class="active">Student Corner</a>
       <a href="glossary.html">Glossary</a>
       <a href="disease-library.html">Disease Library</a>
       <a href="about.html">About</a>
@@ -42,20 +43,9 @@
 </header>
 
 <main class="wrap">
-  <h1 style="font-family:var(--font-display); font-size:2rem; margin: 30px 0 8px;">Articles</h1>
-  <p style="color:var(--ink-soft); margin-bottom: 20px;">Every post published through the CMS, newest first.</p>
+  <h1 style="font-family:var(--font-display); font-size:2rem; margin: 30px 0 8px;">Student Corner</h1>
+  <p style="color:var(--ink-soft); margin-bottom: 20px;">Where medical technology meets clinical reasoning — written with med school and the wards in mind.</p>
 
-  <div id="featured-slot"></div>
-
-  <div class="filters" id="filters" style="display:none;">
-    <div class="chip active" data-filter="all">All</div>
-    <div class="chip" data-filter="AI Diagnostics">AI Diagnostics</div>
-    <div class="chip" data-filter="Wearables">Wearables</div>
-    <div class="chip" data-filter="Diagnostics">Diagnostics</div>
-    <div class="chip" data-filter="Genomics">Genomics</div>
-  </div>
-
-  <div class="section-label" id="rest-label" style="display:none;">More articles</div>
   <div id="posts" class="card-grid"></div>
 </main>
 
@@ -87,63 +77,33 @@ const DEFAULT_ICON = ICONS["Diagnostics"];
 fetch('posts.json')
   .then(response => response.json())
   .then(posts => {
-    const featuredSlot = document.getElementById('featured-slot');
     const container = document.getElementById('posts');
+    const filtered = posts.filter(p => p.tag === "Student Corner");
 
-    if (!posts.length) {
-      container.innerHTML = '<p style="padding: 20px 0; color: var(--ink-soft);">No posts yet — write your first one in the CMS.</p>';
+    if (!filtered.length) {
+      container.innerHTML = '<p style="padding: 20px 0; color: var(--ink-soft);">No posts here yet — check back soon.</p>';
       return;
     }
 
-    const [first, ...rest] = posts;
-    const firstIcon = ICONS[first.tag] || DEFAULT_ICON;
-    featuredSlot.innerHTML = `
-      <a class="featured reveal" href="${first.link}" data-tag="${first.tag || ''}">
-        <div class="featured-img">${first.image ? `<img src="${first.image}" alt="" style="width:100%;height:100%;object-fit:cover;">` : firstIcon}</div>
-        <div class="featured-body">
-          <div class="tag">${firstIcon}${first.tag || 'Diagnostics'}</div>
-          <h2>${first.title}</h2>
-          <p>${first.summary || ''}</p>
-          <div class="meta">${first.readMinutes ? first.readMinutes + ' min read' : ''}${first.dateDisplay ? ' · ' + first.dateDisplay : ''}</div>
-        </div>
-      </a>`;
-
-    if (rest.length) {
-      document.getElementById('filters').style.display = 'flex';
-      document.getElementById('rest-label').style.display = 'block';
-    }
-
-    container.innerHTML = rest.map(post => {
+    container.innerHTML = filtered.map(post => {
       const icon = ICONS[post.tag] || DEFAULT_ICON;
       const thumb = post.image ? `<img src="${post.image}" alt="" style="width:100%;height:100%;object-fit:cover;">` : icon;
       return `
-        <a class="grid-card reveal" href="${post.link}" data-tag="${post.tag || ''}">
+        <a class="grid-card reveal" href="${post.link}">
           <div class="grid-img">${thumb}</div>
           <div class="grid-body">
-            <div class="tag">${icon}${post.tag || 'Diagnostics'}</div>
+            <div class="tag">${icon}${post.tag}</div>
             <h3>${post.title}</h3>
             <span>${post.readMinutes ? post.readMinutes + ' min read' : ''}</span>
           </div>
         </a>`;
     }).join('');
 
-    document.querySelectorAll('.chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-        const filter = chip.dataset.filter;
-        document.querySelectorAll('[data-tag]').forEach(card => {
-          const show = filter === 'all' || card.dataset.tag === filter;
-          card.style.display = show ? '' : 'none';
-        });
-      });
-    });
-
     window.initReveal();
   })
   .catch(error => {
     document.getElementById('posts').innerHTML =
-      '<p style="padding: 20px 0; color: var(--ink-soft);">Unable to load articles right now.</p>';
+      '<p style="padding: 20px 0; color: var(--ink-soft);">Unable to load posts right now.</p>';
     console.error(error);
   });
 </script>

@@ -11,6 +11,8 @@ const ICONS = {
   "Wearables": `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="8" width="10" height="12" rx="3"/><path d="M11 8V4h6v4M11 20v4h6v-4"/><circle cx="14" cy="14" r="2"/></svg>`,
   "Diagnostics": `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7l-7 12a2 2 0 0 0 2 3h14a2 2 0 0 0 2-3l-7-12V3"/><path d="M10 3h8"/><path d="M8 18h12"/></svg>`,
   "Genomics": `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2c9 7 9 7 0 14c9 7 9 7 0 14"/><path d="M20 2c-9 7-9 7 0 14c-9 7-9 7 0 14"/><path d="M8.5 5.5h13M8.5 12.5h13M8.5 15.5h13M8.5 22.5h13"/></svg>`,
+  "The Basics": `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="10"/><path d="M14 10v5l3 2"/></svg>`,
+  "Student Corner": `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l10-4 10 4-10 4-10-4z"/><path d="M8 12v6c0 1.5 3 3 6 3s6-1.5 6-3v-6"/><path d="M24 9v7"/></svg>`,
 };
 const DEFAULT_ICON = ICONS["Diagnostics"];
 
@@ -116,6 +118,10 @@ function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author
       <a href="index.html">Home</a>
       <a href="blog.html">Articles</a>
       <a href="news.html">News</a>
+      <a href="the-basics.html">The Basics</a>
+      <a href="student-corner.html">Student Corner</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="disease-library.html">Disease Library</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -149,6 +155,7 @@ ${htmlBody}
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
     </div>
+    <span class="footer-legal"><a href="privacy.html">Privacy Policy</a> · <a href="disclaimer.html">Disclaimer</a></span>
     <span>&copy; 2026</span>
   </div>
 </footer>
@@ -243,6 +250,10 @@ function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sou
       <a href="index.html">Home</a>
       <a href="blog.html">Articles</a>
       <a href="news.html">News</a>
+      <a href="the-basics.html">The Basics</a>
+      <a href="student-corner.html">Student Corner</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="disease-library.html">Disease Library</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -278,6 +289,199 @@ function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sou
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
     </div>
+    <span class="footer-legal"><a href="privacy.html">Privacy Policy</a> · <a href="disclaimer.html">Disclaimer</a></span>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
+`;
+}
+
+// ---------- Glossary page ----------
+function renderGlossaryPage(entries) {
+  const sorted = [...entries].sort((a, b) => a.term.localeCompare(b.term));
+  let lastLetter = "";
+  const entriesHtml = sorted.map(e => {
+    const letter = e.term.charAt(0).toUpperCase();
+    const letterHtml = letter !== lastLetter ? `<div class="glossary-letter">${letter}</div>` : "";
+    lastLetter = letter;
+    return `${letterHtml}
+  <div class="glossary-entry">
+    <div class="glossary-term">${e.term}</div>
+    <div class="glossary-def">${e.definition}</div>
+  </div>`;
+  }).join("\n");
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3611MH8QQQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3611MH8QQQ');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2371873453043295"
+     crossorigin="anonymous"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossary — Medicine4life</title>
+<meta name="description" content="Plain-language definitions of medical technology and research terms used across Medicine4life.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="images/favicon-32.png">
+<link rel="apple-touch-icon" href="images/favicon-180.png">
+<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
+<style>
+  .glossary-entry { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .glossary-entry:last-child { border-bottom: none; }
+  .glossary-term { font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 6px; }
+  .glossary-def { color: var(--ink-soft); line-height: 1.6; }
+  .glossary-letter { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--signal); margin-top: 36px; margin-bottom: 4px; text-transform: uppercase; }
+  .glossary-letter:first-child { margin-top: 0; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="logo"><a href="index.html" style="display:flex;"><img src="images/logo.png" alt="Medicine4life"></a></div>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Articles</a>
+      <a href="news.html">News</a>
+      <a href="the-basics.html">The Basics</a>
+      <a href="student-corner.html">Student Corner</a>
+      <a href="glossary.html" class="active">Glossary</a>
+      <a href="disease-library.html">Disease Library</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap page-body">
+  <h1>Glossary</h1>
+  <p style="color: var(--ink-soft); margin-bottom: 20px;">Plain-language definitions of terms you'll see across the site. Growing as new articles are published.</p>
+
+  ${entriesHtml || '<p style="color: var(--ink-soft);">No terms yet.</p>'}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="brand-mark"><svg width="16" height="16" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15h6l3-9 4 18 3-9h6"/></svg>Medicine4life — medical technology, explained clearly</span>
+    <span class="footer-owner">Owned by — Sushil Dethaliya</span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/medicine4life__?igsh=MW44NHNyOGFtdzhuOA%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Medicine4life on Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+    <span class="footer-legal"><a href="privacy.html">Privacy Policy</a> · <a href="disclaimer.html">Disclaimer</a></span>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
+`;
+}
+
+// ---------- Disease Library page ----------
+function renderDiseaseLibraryPage(entries) {
+  const sorted = [...entries].sort((a, b) => a.name.localeCompare(b.name));
+  const cardsHtml = sorted.map(d => `
+  <div class="disease-card">
+    <div class="disease-name">${d.name}</div>
+    <div class="disease-section-label">Overview</div>
+    <div class="disease-text">${d.overview}</div>
+    <div class="disease-section-label">Why it matters</div>
+    <div class="disease-text">${d.whyItMatters}</div>
+    <div class="disease-section-label">Current treatment landscape</div>
+    <div class="disease-text">${d.treatment}</div>
+  </div>`).join("\n");
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3611MH8QQQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3611MH8QQQ');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2371873453043295"
+     crossorigin="anonymous"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disease Library — Medicine4life</title>
+<meta name="description" content="General, plain-language overviews of diseases and conditions covered across Medicine4life articles — not a substitute for medical advice.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Arimo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="images/favicon-32.png">
+<link rel="apple-touch-icon" href="images/favicon-180.png">
+<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
+<style>
+  .disease-card { padding: 24px 0; border-bottom: 1px solid var(--line); }
+  .disease-card:last-child { border-bottom: none; }
+  .disease-name { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 10px; }
+  .disease-section-label { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--signal); margin-top: 14px; margin-bottom: 4px; }
+  .disease-section-label:first-of-type { margin-top: 0; }
+  .disease-text { color: var(--ink-soft); line-height: 1.6; }
+  .disease-note { margin-top: 40px; padding: 16px 20px; background: var(--bg-soft, #f7f5f0); border-radius: 8px; font-size: 0.9rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="logo"><a href="index.html" style="display:flex;"><img src="images/logo.png" alt="Medicine4life"></a></div>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Articles</a>
+      <a href="news.html">News</a>
+      <a href="the-basics.html">The Basics</a>
+      <a href="student-corner.html">Student Corner</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="disease-library.html" class="active">Disease Library</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap page-body">
+  <h1>Disease Library</h1>
+  <p style="color: var(--ink-soft); margin-bottom: 20px;">General overviews of conditions referenced in our articles — background context, not diagnosis or treatment guidance.</p>
+
+  ${cardsHtml || '<p style="color: var(--ink-soft);">No entries yet.</p>'}
+
+  <div class="disease-note">
+    This library provides general background information only and does not cover every aspect of these conditions. It is not medical advice — see our <a href="disclaimer.html">Disclaimer</a> for more, and always consult a healthcare professional for questions about a specific diagnosis or treatment.
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="brand-mark"><svg width="16" height="16" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15h6l3-9 4 18 3-9h6"/></svg>Medicine4life — medical technology, explained clearly</span>
+    <span class="footer-owner">Owned by — Sushil Dethaliya</span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/medicine4life__?igsh=MW44NHNyOGFtdzhuOA%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Medicine4life on Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+    <span class="footer-legal"><a href="privacy.html">Privacy Policy</a> · <a href="disclaimer.html">Disclaimer</a></span>
     <span>&copy; 2026</span>
   </div>
 </footer>
@@ -326,3 +530,41 @@ const newsItems = newsFiles
 fs.writeFileSync("news.json", JSON.stringify(newsItems, null, 2));
 
 console.log(`Generated ${posts.length} post page(s), posts.json, and news.json (${newsItems.length} item(s))`);
+
+// ---------- Glossary ----------
+const glossaryFolder = "glossary";
+const glossaryFiles = fs.existsSync(glossaryFolder) ? fs.readdirSync(glossaryFolder) : [];
+
+const glossaryEntries = glossaryFiles
+  .filter(file => file.endsWith(".md"))
+  .map(file => {
+    const raw = fs.readFileSync(path.join(glossaryFolder, file), "utf8");
+    const { data } = parseFrontmatter(raw);
+    return {
+      term: data.term || "Untitled",
+      definition: data.definition || "",
+    };
+  });
+
+fs.writeFileSync("glossary.html", renderGlossaryPage(glossaryEntries));
+console.log(`Generated glossary.html (${glossaryEntries.length} term(s))`);
+
+// ---------- Disease Library ----------
+const diseasesFolder = "diseases";
+const diseaseFiles = fs.existsSync(diseasesFolder) ? fs.readdirSync(diseasesFolder) : [];
+
+const diseaseEntries = diseaseFiles
+  .filter(file => file.endsWith(".md"))
+  .map(file => {
+    const raw = fs.readFileSync(path.join(diseasesFolder, file), "utf8");
+    const { data } = parseFrontmatter(raw);
+    return {
+      name: data.name || "Untitled",
+      overview: data.overview || "",
+      whyItMatters: data.whyItMatters || "",
+      treatment: data.treatment || "",
+    };
+  });
+
+fs.writeFileSync("disease-library.html", renderDiseaseLibraryPage(diseaseEntries));
+console.log(`Generated disease-library.html (${diseaseEntries.length} entr${diseaseEntries.length === 1 ? "y" : "ies"})`);

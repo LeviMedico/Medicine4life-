@@ -398,6 +398,16 @@ img { max-width: 100%; display: block; }
 }
 .footer-social a:hover { color: var(--signal); }
 .footer-social svg { color: inherit; }
+.footer-legal {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+.footer-legal a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-legal a:hover { color: var(--signal); }
 
 /* ===== Scroll-reveal ===== */
 .reveal {
