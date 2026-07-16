@@ -74,11 +74,10 @@ const ICONS = {
 };
 const DEFAULT_ICON = ICONS["Diagnostics"];
 
-fetch('posts.json')
+fetch('student-corner.json')
   .then(response => response.json())
-  .then(posts => {
+  .then(filtered => {
     const container = document.getElementById('posts');
-    const filtered = posts.filter(p => p.tag === "Student Corner");
 
     if (!filtered.length) {
       container.innerHTML = '<p style="padding: 20px 0; color: var(--ink-soft);">No posts here yet — check back soon.</p>';

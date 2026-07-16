@@ -205,6 +205,88 @@ const posts = postFiles
 
 fs.writeFileSync("posts.json", JSON.stringify(posts, null, 2));
 
+// ---------- The Basics ----------
+const theBasicsFolder = "./the-basics-posts";
+const theBasicsFiles = fs.existsSync(theBasicsFolder) ? fs.readdirSync(theBasicsFolder) : [];
+
+const theBasicsPosts = theBasicsFiles
+  .filter(file => file.endsWith(".md"))
+  .map(file => {
+    const raw = fs.readFileSync(path.join(theBasicsFolder, file), "utf8");
+    const { data, body } = parseFrontmatter(raw);
+
+    const title = data.title || "Untitled";
+    const tag = "The Basics";
+    const icon = ICONS[tag] || DEFAULT_ICON;
+    const dateDisplay = formatDate(data.date);
+    const image = data.image || "";
+    const author = data.author || "";
+    const summary = data.summary || body.split("\n").find(l => l.trim().length > 0) || "";
+    const readMinutes = estimateReadTime(body);
+
+    const htmlBody = marked(body);
+    const slug = file.replace(".md", "");
+    const link = `${slug}.html`;
+
+    fs.writeFileSync(link, renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author, summary }));
+
+    return {
+      title,
+      date: data.date || "",
+      dateDisplay,
+      tag,
+      summary: summary.length > 160 ? summary.slice(0, 157) + "..." : summary,
+      readMinutes,
+      image,
+      link,
+    };
+  })
+  .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+fs.writeFileSync("the-basics.json", JSON.stringify(theBasicsPosts, null, 2));
+console.log(`Generated ${theBasicsPosts.length} The Basics page(s) and the-basics.json`);
+
+// ---------- Student Corner ----------
+const studentCornerFolder = "./student-corner-posts";
+const studentCornerFiles = fs.existsSync(studentCornerFolder) ? fs.readdirSync(studentCornerFolder) : [];
+
+const studentCornerPosts = studentCornerFiles
+  .filter(file => file.endsWith(".md"))
+  .map(file => {
+    const raw = fs.readFileSync(path.join(studentCornerFolder, file), "utf8");
+    const { data, body } = parseFrontmatter(raw);
+
+    const title = data.title || "Untitled";
+    const tag = "Student Corner";
+    const icon = ICONS[tag] || DEFAULT_ICON;
+    const dateDisplay = formatDate(data.date);
+    const image = data.image || "";
+    const author = data.author || "";
+    const summary = data.summary || body.split("\n").find(l => l.trim().length > 0) || "";
+    const readMinutes = estimateReadTime(body);
+
+    const htmlBody = marked(body);
+    const slug = file.replace(".md", "");
+    const link = `${slug}.html`;
+
+    fs.writeFileSync(link, renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author, summary }));
+
+    return {
+      title,
+      date: data.date || "",
+      dateDisplay,
+      tag,
+      summary: summary.length > 160 ? summary.slice(0, 157) + "..." : summary,
+      readMinutes,
+      image,
+      link,
+    };
+  })
+  .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+fs.writeFileSync("student-corner.json", JSON.stringify(studentCornerPosts, null, 2));
+console.log(`Generated ${studentCornerPosts.length} Student Corner page(s) and student-corner.json`);
+
 function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sourceUrl, image, author }) {
   const bannerHtml = image
     ? `<div class="wrap"><img src="${image}" alt="${title}" class="post-banner reveal"></div>`
