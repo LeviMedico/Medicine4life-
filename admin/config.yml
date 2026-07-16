@@ -68,6 +68,7 @@ collections:
     folder: "glossary"
     create: true
     slug: "{{slug}}"
+    identifier_field: term
     fields:
       - {label: "Term", name: "term", widget: "string"}
       - {label: "Definition", name: "definition", widget: "text"}
@@ -78,6 +79,7 @@ collections:
     folder: "diseases"
     create: true
     slug: "{{slug}}"
+    identifier_field: name
     fields:
       - {label: "Disease Name", name: "name", widget: "string"}
       - {label: "Overview", name: "overview", widget: "text"}
