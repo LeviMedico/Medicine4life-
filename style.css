@@ -101,6 +101,8 @@ img { max-width: 100%; display: block; }
 }
 .site-nav a:hover::after, .site-nav a.active::after { width: 100%; }
 .site-nav a:hover, .site-nav a.active { color: var(--ink); text-decoration: none; }
+.nav-search { display: inline-flex; align-items: center; }
+.nav-search svg { display: block; }
 .site-nav a:not(:first-child)::before {
   content: "";
   position: absolute;

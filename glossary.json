@@ -1,0 +1,56 @@
+[
+  {
+    "term": "Biomarker",
+    "definition": "A measurable substance or signal in the body — like a blood protein, genetic marker, or vital sign — used to indicate the presence of a disease, how it's progressing, or how well a treatment is working.",
+    "image": "",
+    "slug": "biomarker"
+  },
+  {
+    "term": "Clinical trial phases (Phase 1/2/3)",
+    "definition": "The staged process a new drug or device goes through before approval. Phase 1 tests safety in a small group; Phase 2 tests effectiveness and dosing in a larger group; Phase 3 is a large-scale trial comparing the treatment against a standard option, and is generally required before regulatory approval.",
+    "image": "",
+    "slug": "clinical-trial-phases-phase-1-2-3"
+  },
+  {
+    "term": "CRISPR",
+    "definition": "A gene-editing technology that lets scientists precisely cut and modify specific sequences of DNA, most often described using the \"molecular scissors\" analogy. Used both in research and, increasingly, in approved therapies for genetic diseases.",
+    "image": "",
+    "slug": "crispr"
+  },
+  {
+    "term": "GLP-1 (drug class)",
+    "definition": "A class of medications — including semaglutide (Ozempic, Wegovy) and tirzepatide (Mounjaro, Zepbound) — originally developed for type 2 diabetes, which slow digestion and reduce appetite, leading to significant weight loss.",
+    "image": "",
+    "slug": "glp-1-drug-class"
+  },
+  {
+    "term": "Median survival",
+    "definition": "In a clinical trial, the point at which half of the participants have died and half are still alive. It's a standard way to compare how long people typically survive on one treatment versus another.",
+    "image": "",
+    "slug": "median-survival"
+  },
+  {
+    "term": "Pharmacogenomics",
+    "definition": "The study of how a person's genes affect their response to drugs — including how quickly they metabolize a medication and whether they're likely to experience side effects or reduced effectiveness at a standard dose.",
+    "image": "",
+    "slug": "pharmacogenomics"
+  },
+  {
+    "term": "RAS mutation",
+    "definition": "A change in the RAS family of genes that causes cells to receive a constant \"keep growing\" signal. RAS mutations drive a significant share of cancers, including most pancreatic cancers, and are a major target for newer targeted cancer drugs.",
+    "image": "",
+    "slug": "ras-mutation"
+  },
+  {
+    "term": "REDs (Relative Energy Deficiency in Sport)",
+    "definition": "A condition where an athlete's energy intake doesn't meet the demands of training, leading to effects like impaired menstrual function, reduced bone density, and slower recovery — independent of body weight or visible weight loss.",
+    "image": "",
+    "slug": "reds-relative-energy-deficiency-in-sport"
+  },
+  {
+    "term": "Targeted therapy",
+    "definition": "A treatment designed to act on a specific molecule or pathway driving a disease — as opposed to older treatments like traditional chemotherapy, which broadly affect fast-dividing cells regardless of the underlying cause.",
+    "image": "",
+    "slug": "targeted-therapy"
+  }
+]

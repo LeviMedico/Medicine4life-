@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Alzheimer’s Disease",
+    "overview": "A progressive neurological disorder that damages brain cells and gradually affects memory, thinking, and daily functioning. It is the most common cause of dementia worldwide.",
+    "whyItMatters": "The disease develops years before symptoms appear. Growing research focuses on detecting early changes and targeting abnormal proteins like amyloid and tau.",
+    "treatment": "Current treatments mainly manage symptoms, while newer therapies aim to slow progression by targeting disease pathways. Research areas include anti-amyloid antibodies, biomarkers, and precision medicine.",
+    "image": "/images/uploads/936.jpg",
+    "slug": "alzheimer-s-disease"
+  },
+  {
+    "name": "Multiple Myeloma",
+    "overview": "A cancer of plasma cells — a type of white blood cell made in the bone marrow that normally helps fight infection.",
+    "whyItMatters": "Newer immune-based therapies, including CAR-T cell therapy and bispecific antibodies, have meaningfully improved outcomes for patients whose disease has stopped responding to standard treatment.",
+    "treatment": "Combination drug therapy, stem cell transplant for eligible patients, and immune-based therapies for relapsed or treatment-resistant cases.",
+    "image": "/images/uploads/938.jpg",
+    "slug": "multiple-myeloma"
+  },
+  {
+    "name": "Pancreatic Cancer",
+    "overview": "A cancer that begins in the pancreas, an organ behind the stomach that helps with digestion and blood sugar regulation. It's often diagnosed at an advanced stage because early symptoms are vague or absent.",
+    "whyItMatters": "Most cases are caught after the cancer has spread. Many pancreatic tumors also carry RAS gene mutations, which have historically been difficult to target with drugs, though that is starting to change.",
+    "treatment": "Surgery when caught early, plus chemotherapy; targeted therapies like RAS inhibitors are an active, fast-moving area of research and clinical trials.",
+    "image": "",
+    "slug": "pancreatic-cancer"
+  },
+  {
+    "name": "Sickle Cell Disease",
+    "overview": "A genetic blood disorder where red blood cells form a rigid, sickle shape instead of a flexible disc, causing blockages in blood flow, chronic pain episodes, and organ damage over time.",
+    "whyItMatters": "It's one of the first diseases successfully treated with CRISPR-based gene editing therapy, marking a major proof-of-concept for gene editing as a curative approach rather than lifelong symptom management.",
+    "treatment": "Pain management, blood transfusions, and hydroxyurea remain standard; CRISPR-based gene therapy is now approved in some countries for eligible patients, though access and cost remain significant barriers.",
+    "image": "/images/uploads/943.png",
+    "slug": "sickle-cell-disease"
+  },
+  {
+    "name": "Type 2 Diabetes",
+    "overview": "A chronic condition where the body becomes resistant to insulin or doesn't produce enough of it, leading to elevated blood sugar levels over time.",
+    "whyItMatters": "Poorly managed blood sugar increases risk for heart disease, kidney damage, nerve damage, and vision loss over time.",
+    "treatment": "Lifestyle changes, oral medications like metformin, and — increasingly — GLP-1 and dual-agonist injectable drugs, which improve blood sugar control and often cause significant weight loss as well.",
+    "image": "",
+    "slug": "type-2-diabetes"
+  }
+]

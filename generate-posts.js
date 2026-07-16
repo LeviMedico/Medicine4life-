@@ -16,6 +16,13 @@ const ICONS = {
 };
 const DEFAULT_ICON = ICONS["Diagnostics"];
 
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 function parseFrontmatter(raw) {
   const match = raw.match(/^---\s*([\s\S]*?)\s*---\s*([\s\S]*)$/);
   if (!match) return { data: {}, body: raw };
@@ -124,6 +131,9 @@ function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author
       <a href="disease-library.html">Disease Library</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
+      <a href="search.html" class="nav-search" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </a>
     </nav>
   </div>
 </header>
@@ -338,6 +348,9 @@ function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sou
       <a href="disease-library.html">Disease Library</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
+      <a href="search.html" class="nav-search" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </a>
     </nav>
   </div>
 </header>
@@ -391,7 +404,7 @@ function renderGlossaryPage(entries) {
     const letterHtml = letter !== lastLetter ? `<div class="glossary-letter">${letter}</div>` : "";
     lastLetter = letter;
     return `${letterHtml}
-  <div class="glossary-entry">
+  <div class="glossary-entry" id="${slugify(e.term)}">
     <div class="glossary-term-row">
       ${e.image ? `<img src="${e.image}" alt="${e.term}" class="glossary-thumb">` : ""}
       <div class="glossary-term">${e.term}</div>
@@ -450,6 +463,9 @@ function renderGlossaryPage(entries) {
       <a href="disease-library.html">Disease Library</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
+      <a href="search.html" class="nav-search" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </a>
     </nav>
   </div>
 </header>
@@ -485,7 +501,7 @@ function renderGlossaryPage(entries) {
 function renderDiseaseLibraryPage(entries) {
   const sorted = [...entries].sort((a, b) => a.name.localeCompare(b.name));
   const cardsHtml = sorted.map(d => `
-  <div class="disease-card">
+  <div class="disease-card" id="${slugify(d.name)}">
     ${d.image ? `<img src="${d.image}" alt="${d.name}" class="disease-image">` : ""}
     <div class="disease-name">${d.name}</div>
     <div class="disease-section-label">Overview</div>
@@ -546,6 +562,9 @@ function renderDiseaseLibraryPage(entries) {
       <a href="disease-library.html" class="active">Disease Library</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
+      <a href="search.html" class="nav-search" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </a>
     </nav>
   </div>
 </header>
@@ -637,7 +656,10 @@ const glossaryEntries = glossaryFiles
   });
 
 fs.writeFileSync("glossary.html", renderGlossaryPage(glossaryEntries));
-console.log(`Generated glossary.html (${glossaryEntries.length} term(s))`);
+fs.writeFileSync("glossary.json", JSON.stringify(
+  glossaryEntries.map(e => ({ ...e, slug: slugify(e.term) })), null, 2
+));
+console.log(`Generated glossary.html, glossary.json (${glossaryEntries.length} term(s))`);
 
 // ---------- Disease Library ----------
 const diseasesFolder = "diseases";
@@ -658,7 +680,10 @@ const diseaseEntries = diseaseFiles
   });
 
 fs.writeFileSync("disease-library.html", renderDiseaseLibraryPage(diseaseEntries));
-console.log(`Generated disease-library.html (${diseaseEntries.length} entr${diseaseEntries.length === 1 ? "y" : "ies"})`);
+fs.writeFileSync("diseases.json", JSON.stringify(
+  diseaseEntries.map(d => ({ ...d, slug: slugify(d.name) })), null, 2
+));
+console.log(`Generated disease-library.html, diseases.json (${diseaseEntries.length} entr${diseaseEntries.length === 1 ? "y" : "ies"})`);
 
 // ---------- Typography (CMS-controlled site fonts) ----------
 const FONT_STACKS = {

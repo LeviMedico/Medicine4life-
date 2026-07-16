@@ -48,6 +48,9 @@
       <a href="disease-library.html" class="active">Disease Library</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
+      <a href="search.html" class="nav-search" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </a>
     </nav>
   </div>
 </header>
@@ -57,8 +60,19 @@
   <p style="color: var(--ink-soft); margin-bottom: 20px;">General overviews of conditions referenced in our articles — background context, not diagnosis or treatment guidance.</p>
 
   
-  <div class="disease-card">
-    
+  <div class="disease-card" id="alzheimer-s-disease">
+    <img src="/images/uploads/936.jpg" alt="Alzheimer’s Disease" class="disease-image">
+    <div class="disease-name">Alzheimer’s Disease</div>
+    <div class="disease-section-label">Overview</div>
+    <div class="disease-text">A progressive neurological disorder that damages brain cells and gradually affects memory, thinking, and daily functioning. It is the most common cause of dementia worldwide.</div>
+    <div class="disease-section-label">Why it matters</div>
+    <div class="disease-text">The disease develops years before symptoms appear. Growing research focuses on detecting early changes and targeting abnormal proteins like amyloid and tau.</div>
+    <div class="disease-section-label">Current treatment landscape</div>
+    <div class="disease-text">Current treatments mainly manage symptoms, while newer therapies aim to slow progression by targeting disease pathways. Research areas include anti-amyloid antibodies, biomarkers, and precision medicine.</div>
+  </div>
+
+  <div class="disease-card" id="multiple-myeloma">
+    <img src="/images/uploads/938.jpg" alt="Multiple Myeloma" class="disease-image">
     <div class="disease-name">Multiple Myeloma</div>
     <div class="disease-section-label">Overview</div>
     <div class="disease-text">A cancer of plasma cells — a type of white blood cell made in the bone marrow that normally helps fight infection.</div>
@@ -68,7 +82,7 @@
     <div class="disease-text">Combination drug therapy, stem cell transplant for eligible patients, and immune-based therapies for relapsed or treatment-resistant cases.</div>
   </div>
 
-  <div class="disease-card">
+  <div class="disease-card" id="pancreatic-cancer">
     
     <div class="disease-name">Pancreatic Cancer</div>
     <div class="disease-section-label">Overview</div>
@@ -79,8 +93,8 @@
     <div class="disease-text">Surgery when caught early, plus chemotherapy; targeted therapies like RAS inhibitors are an active, fast-moving area of research and clinical trials.</div>
   </div>
 
-  <div class="disease-card">
-    
+  <div class="disease-card" id="sickle-cell-disease">
+    <img src="/images/uploads/943.png" alt="Sickle Cell Disease" class="disease-image">
     <div class="disease-name">Sickle Cell Disease</div>
     <div class="disease-section-label">Overview</div>
     <div class="disease-text">A genetic blood disorder where red blood cells form a rigid, sickle shape instead of a flexible disc, causing blockages in blood flow, chronic pain episodes, and organ damage over time.</div>
@@ -90,7 +104,7 @@
     <div class="disease-text">Pain management, blood transfusions, and hydroxyurea remain standard; CRISPR-based gene therapy is now approved in some countries for eligible patients, though access and cost remain significant barriers.</div>
   </div>
 
-  <div class="disease-card">
+  <div class="disease-card" id="type-2-diabetes">
     
     <div class="disease-name">Type 2 Diabetes</div>
     <div class="disease-section-label">Overview</div>
