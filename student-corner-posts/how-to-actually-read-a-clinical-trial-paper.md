@@ -1,9 +1,11 @@
 ---
 title: How to actually read a clinical trial paper
 date: 2026-07-16T09:00:00.000Z
-summary: p-values, confidence intervals, and "statistically significant" get thrown around constantly — here's what they actually tell you, and what they don't.
+summary: p-values, confidence intervals, and "statistically significant" get
+  thrown around constantly — here's what they actually tell you, and what they
+  don't.
 author: Medicine4life
-image:
+image: /images/uploads/1229.jpg
 ---
 Every article on this site — the pancreatic cancer drug, the pharmacogenomics piece — is ultimately built on a clinical trial paper. If you're heading into clinical practice, you'll be reading these for the rest of your career, whether it's to counsel a patient, choose between treatments, or just keep up with your field. Here's how to actually get through one without just skimming the abstract and trusting the headline.
 
