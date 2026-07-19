@@ -544,7 +544,7 @@ function renderDiseaseLibraryPage(entries) {
   .disease-section-label { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--signal); margin-top: 14px; margin-bottom: 4px; }
   .disease-section-label:first-of-type { margin-top: 0; }
   .disease-text { color: var(--ink-soft); line-height: 1.6; }
-  .disease-note { margin-top: 40px; padding: 16px 20px; background: var(--bg-soft, #f7f5f0); border-radius: 8px; font-size: 0.9rem; color: var(--ink-soft); }
+  .disease-note { margin-top: 40px; padding: 16px 20px; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 8px; font-size: 0.9rem; color: var(--ink-soft); }
 </style>
 </head>
 <body>

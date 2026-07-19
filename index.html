@@ -45,6 +45,12 @@
 </header>
 
 <section class="hero">
+  <canvas id="heroParticles" class="hero-particles"></canvas>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-corner tl"></div>
+  <div class="hero-corner tr"></div>
+  <div class="hero-corner bl"></div>
+  <div class="hero-corner br"></div>
   <div class="wrap">
     <div class="eyebrow">A medical student's notes on medical technology</div>
     <h1>Where medicine meets what's next.</h1>
@@ -166,5 +172,108 @@ fetch('posts.json')
   });
 </script>
 <script src="script.js" defer></script>
+<script>
+(function() {
+  const canvas = document.getElementById('heroParticles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const hero = canvas.closest('.hero');
+  let w, h;
+
+  function resize() {
+    w = canvas.width = hero.offsetWidth;
+    h = canvas.height = hero.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const mouse = { x: w / 2, y: h / 2, active: false };
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+    mouse.active = true;
+
+    const px = mouse.x / rect.width - 0.5;
+    const py = mouse.y / rect.height - 0.5;
+    document.querySelectorAll('.hero-corner').forEach(el => {
+      el.style.transform = `translate(${px * 10}px, ${py * 10}px)`;
+    });
+  });
+  hero.addEventListener('mouseleave', () => { mouse.active = false; });
+
+  const COUNT = window.innerWidth < 700 ? 35 : 70;
+  const particles = [];
+  for (let i = 0; i < COUNT; i++) {
+    particles.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      r: Math.random() * 1.5 + 0.5,
+    });
+  }
+
+  function tick() {
+    ctx.clearRect(0, 0, w, h);
+
+    for (const p of particles) {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+
+      if (mouse.active) {
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 160) {
+          const force = (1 - dist / 160) * 0.02;
+          p.x -= dx * force;
+          p.y -= dy * force;
+        }
+      }
+    }
+
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          ctx.strokeStyle = `rgba(36,184,140,${0.12 * (1 - dist / 120)})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+      if (mouse.active) {
+        const dx = mouse.x - particles[i].x;
+        const dy = mouse.y - particles[i].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 160) {
+          ctx.strokeStyle = `rgba(110,231,197,${0.25 * (1 - dist / 160)})`;
+          ctx.beginPath();
+          ctx.moveTo(mouse.x, mouse.y);
+          ctx.lineTo(particles[i].x, particles[i].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    for (const p of particles) {
+      ctx.fillStyle = 'rgba(110,231,197,0.7)';
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+</script>
 </body>
 </html>
