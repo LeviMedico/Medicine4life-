@@ -14,8 +14,8 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Basics — Medicine4life</title>
-<meta name="description" content="Short, plain-language explainers on medical technology terms and concepts — no jargon, just the essentials.">
+<title>FMGE Prep — Medicine4life</title>
+<meta name="description" content="Subject-wise notes and high-yield points for FMGE preparation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display&family=Arimo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -32,9 +32,9 @@
       <a href="index.html">Home</a>
       <a href="blog.html">Articles</a>
       <a href="news.html">News</a>
-      <a href="the-basics.html" class="active">The Basics</a>
+      <a href="the-basics.html">The Basics</a>
       <a href="student-corner.html">Student Corner</a>
-      <a href="fmge-prep.html">FMGE Prep</a>
+      <a href="fmge-prep.html" class="active">FMGE Prep</a>
       <a href="glossary.html">Glossary</a>
       <a href="disease-library.html">Disease Library</a>
       <a href="about.html">About</a>
@@ -47,8 +47,8 @@
 </header>
 
 <main class="wrap">
-  <h1 style="font-family:var(--font-display); font-size:2rem; margin: 30px 0 8px;">The Basics</h1>
-  <p style="color:var(--ink-soft); margin-bottom: 20px;">Short, plain-language explainers on a single term or concept — no deep dive required.</p>
+  <h1 style="font-family:var(--font-display); font-size:2rem; margin: 30px 0 8px;">FMGE Prep</h1>
+  <p style="color:var(--ink-soft); margin-bottom: 20px;">Subject-wise notes, high-yield points, and exam strategy for the FMGE screening test.</p>
 
   <div id="posts" class="card-grid"></div>
 </main>
@@ -74,11 +74,12 @@ const ICONS = {
   "Diagnostics": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7l-7 12a2 2 0 0 0 2 3h14a2 2 0 0 0 2-3l-7-12V3"/><path d="M10 3h8"/><path d="M8 18h12"/></svg>',
   "Genomics": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2c9 7 9 7 0 14c9 7 9 7 0 14"/><path d="M20 2c-9 7-9 7 0 14c-9 7-9 7 0 14"/><path d="M8.5 5.5h13M8.5 12.5h13M8.5 15.5h13M8.5 22.5h13"/></svg>',
   "The Basics": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="10"/><path d="M14 10v5l3 2"/></svg>',
+  "FMGE Prep": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12l4 4v16H6z"/><path d="M18 4v4h4"/><path d="M9 14h10M9 18h10M9 10h5"/></svg>',
   "Student Corner": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l10-4 10 4-10 4-10-4z"/><path d="M8 12v6c0 1.5 3 3 6 3s6-1.5 6-3v-6"/><path d="M24 9v7"/></svg>'
 };
 const DEFAULT_ICON = ICONS["Diagnostics"];
 
-fetch('the-basics.json')
+fetch('fmge-prep.json')
   .then(response => response.json())
   .then(filtered => {
     const container = document.getElementById('posts');

@@ -12,6 +12,7 @@ const ICONS = {
   "Diagnostics": `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7l-7 12a2 2 0 0 0 2 3h14a2 2 0 0 0 2-3l-7-12V3"/><path d="M10 3h8"/><path d="M8 18h12"/></svg>`,
   "Genomics": `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2c9 7 9 7 0 14c9 7 9 7 0 14"/><path d="M20 2c-9 7-9 7 0 14c-9 7-9 7 0 14"/><path d="M8.5 5.5h13M8.5 12.5h13M8.5 15.5h13M8.5 22.5h13"/></svg>`,
   "The Basics": `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="10"/><path d="M14 10v5l3 2"/></svg>`,
+  "FMGE Prep": `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12l4 4v16H6z"/><path d="M18 4v4h4"/><path d="M9 14h10M9 18h10M9 10h5"/></svg>`,
   "Student Corner": `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l10-4 10 4-10 4-10-4z"/><path d="M8 12v6c0 1.5 3 3 6 3s6-1.5 6-3v-6"/><path d="M24 9v7"/></svg>`,
 };
 const DEFAULT_ICON = ICONS["Diagnostics"];
@@ -127,6 +128,7 @@ function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author
       <a href="news.html">News</a>
       <a href="the-basics.html">The Basics</a>
       <a href="student-corner.html">Student Corner</a>
+      <a href="fmge-prep.html">FMGE Prep</a>
       <a href="glossary.html">Glossary</a>
       <a href="disease-library.html">Disease Library</a>
       <a href="about.html">About</a>
@@ -297,6 +299,49 @@ const studentCornerPosts = studentCornerFiles
 fs.writeFileSync("student-corner.json", JSON.stringify(studentCornerPosts, null, 2));
 console.log(`Generated ${studentCornerPosts.length} Student Corner page(s) and student-corner.json`);
 
+// ---------- FMGE Prep ----------
+const fmgePrepFolder = "./fmge-prep-posts";
+const fmgePrepFiles = fs.existsSync(fmgePrepFolder) ? fs.readdirSync(fmgePrepFolder) : [];
+
+const fmgePrepPosts = fmgePrepFiles
+  .filter(file => file.endsWith(".md"))
+  .map(file => {
+    const raw = fs.readFileSync(path.join(fmgePrepFolder, file), "utf8");
+    const { data, body } = parseFrontmatter(raw);
+
+    const title = data.title || "Untitled";
+    const tag = "FMGE Prep";
+    const icon = ICONS[tag] || DEFAULT_ICON;
+    const subject = data.subject || "";
+    const dateDisplay = formatDate(data.date);
+    const image = data.image || "";
+    const author = data.author || "";
+    const summary = data.summary || body.split("\n").find(l => l.trim().length > 0) || "";
+    const readMinutes = estimateReadTime(body);
+
+    const htmlBody = marked(body);
+    const slug = file.replace(".md", "");
+    const link = `${slug}.html`;
+
+    fs.writeFileSync(link, renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author, summary }));
+
+    return {
+      title,
+      date: data.date || "",
+      dateDisplay,
+      tag,
+      subject,
+      summary: summary.length > 160 ? summary.slice(0, 157) + "..." : summary,
+      readMinutes,
+      image,
+      link,
+    };
+  })
+  .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+fs.writeFileSync("fmge-prep.json", JSON.stringify(fmgePrepPosts, null, 2));
+console.log(`Generated ${fmgePrepPosts.length} FMGE Prep page(s) and fmge-prep.json`);
+
 function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sourceUrl, image, author }) {
   const bannerHtml = image
     ? `<div class="wrap"><img src="${image}" alt="${title}" class="post-banner reveal"></div>`
@@ -344,6 +389,7 @@ function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sou
       <a href="news.html">News</a>
       <a href="the-basics.html">The Basics</a>
       <a href="student-corner.html">Student Corner</a>
+      <a href="fmge-prep.html">FMGE Prep</a>
       <a href="glossary.html">Glossary</a>
       <a href="disease-library.html">Disease Library</a>
       <a href="about.html">About</a>
@@ -459,6 +505,7 @@ function renderGlossaryPage(entries) {
       <a href="news.html">News</a>
       <a href="the-basics.html">The Basics</a>
       <a href="student-corner.html">Student Corner</a>
+      <a href="fmge-prep.html">FMGE Prep</a>
       <a href="glossary.html" class="active">Glossary</a>
       <a href="disease-library.html">Disease Library</a>
       <a href="about.html">About</a>
@@ -558,6 +605,7 @@ function renderDiseaseLibraryPage(entries) {
       <a href="news.html">News</a>
       <a href="the-basics.html">The Basics</a>
       <a href="student-corner.html">Student Corner</a>
+      <a href="fmge-prep.html">FMGE Prep</a>
       <a href="glossary.html">Glossary</a>
       <a href="disease-library.html" class="active">Disease Library</a>
       <a href="about.html">About</a>
