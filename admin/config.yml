@@ -49,6 +49,21 @@ collections:
       - {label: "Featured Image", name: "image", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown", media_library: {config: {multiple: false}}}
 
+  - name: "fmge-prep"
+    label: "FMGE Prep"
+    folder: "fmge-prep-posts"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Subject", name: "subject", widget: "select", options: ["Anatomy", "Physiology", "Biochemistry", "Pathology", "Pharmacology", "Microbiology", "Forensic Medicine", "Community Medicine (PSM)", "Medicine", "Surgery", "OBG", "Pediatrics", "Orthopedics", "ENT", "Ophthalmology", "Dermatology", "Psychiatry", "Radiology", "Anesthesia", "Exam Strategy"], required: false}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Summary", name: "summary", widget: "string", required: false}
+      - {label: "Author", name: "author", widget: "string", required: false, default: "Medicine4life"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown", media_library: {config: {multiple: false}}}
+
   - name: "news"
     label: "News"
     folder: "news"
