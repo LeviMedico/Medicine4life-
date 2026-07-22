@@ -3,7 +3,7 @@ title: Top 20 High-Yield Pharmacology Facts for FMGE
 subject: Pharmacology
 date: 2026-07-20T09:04:26.543Z
 author: "Sushil Dethaliya "
-image: /images/uploads/1278.png
+image: /images/uploads/1310.jpg
 ---
 * Top 20 High-Yield Pharmacology Facts for FMGE
 
