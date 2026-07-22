@@ -99,6 +99,7 @@ function renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-3611MH8QQQ');
+    gtag('config', 'AW-18331622783');
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2371873453043295"
      crossorigin="anonymous"></script>
@@ -360,6 +361,7 @@ function renderNewsPage({ title, dateDisplay, htmlBody, summary, sourceName, sou
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-3611MH8QQQ');
+    gtag('config', 'AW-18331622783');
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2371873453043295"
      crossorigin="anonymous"></script>
@@ -469,6 +471,7 @@ function renderGlossaryPage(entries) {
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-3611MH8QQQ');
+    gtag('config', 'AW-18331622783');
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2371873453043295"
      crossorigin="anonymous"></script>
@@ -569,6 +572,7 @@ function renderDiseaseLibraryPage(entries) {
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-3611MH8QQQ');
+    gtag('config', 'AW-18331622783');
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2371873453043295"
      crossorigin="anonymous"></script>
