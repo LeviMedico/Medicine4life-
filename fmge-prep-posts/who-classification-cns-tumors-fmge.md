@@ -1,10 +1,11 @@
 ---
 title: WHO Classification of CNS Tumors — What FMGE Actually Tests From It
-subject: Pathology
+subject: Surgery
 date: 2026-07-20T09:00:00.000Z
-summary: The WHO CNS5 classification is long, but FMGE tends to test a small, predictable slice of it. Here's what that slice looks like.
-author: Medicine4life
-image:
+summary: The WHO CNS5 classification is long, but FMGE tends to test a small,
+  predictable slice of it. Here's what that slice looks like.
+author: "Sushil Dethaliya "
+image: /images/uploads/1303.jpg
 ---
 The WHO Classification of Tumors of the Central Nervous System, now in its fifth edition (WHO CNS5, 2021), is dense enough to intimidate anyone trying to revise it close to an exam. The good news for FMGE specifically: the exam tends to test a fairly narrow, predictable slice of it, rather than the full depth pathologists actually use in practice.
 
