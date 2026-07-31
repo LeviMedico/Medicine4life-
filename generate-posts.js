@@ -216,7 +216,7 @@ const posts = postFiles
 };
   })
   .sort((a, b) => new Date(b.date) - new Date(a.date));
-
+console.log(posts[0]);
 fs.writeFileSync("posts.json", JSON.stringify(posts, null, 2));
 
 // ---------- The Basics ----------
