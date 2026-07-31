@@ -1,12 +1,22 @@
 [
   {
+    "title": "What \"number needed to treat\" actually tells you",
+    "date": "2026-07-18T01:43:44.677Z",
+    "dateDisplay": "July 18, 2026",
+    "tag": "Student Corner",
+    "summary": "Relative risk reduction sounds impressive in every drug ad. Number needed to treat is the number that tells you if it actually matters.",
+    "readMinutes": 3,
+    "image": "/images/uploads/1228.png",
+    "link": "what-number-needed-to-treat-actually-tells-you.html"
+  },
+  {
     "title": "How to actually read a clinical trial paper",
     "date": "2026-07-16T09:00:00.000Z",
     "dateDisplay": "July 16, 2026",
     "tag": "Student Corner",
     "summary": "p-values, confidence intervals, and \"statistically significant\" get thrown around constantly — here's what they actually tell you, and what they don't.",
     "readMinutes": 3,
-    "image": "",
+    "image": "/images/uploads/1229.jpg",
     "link": "how-to-actually-read-a-clinical-trial-paper.html"
   }
 ]

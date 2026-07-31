@@ -15,10 +15,10 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What is pharmacogenomics? — Medicine4life</title>
-<meta name="description" content="Your genes can decide whether a standard dose of a drug helps you, does nothing, or makes you sick — this is the science of why.">
-<meta property="og:title" content="What is pharmacogenomics?">
-<meta property="og:description" content="Your genes can decide whether a standard dose of a drug helps you, does nothing, or makes you sick — this is the science of why.">
+<title>AI models can read X-rays fast. Should they read them alone? — Medicine4life</title>
+<meta name="description" content="A look at what the accuracy numbers actually mean once you account for how radiologists work in practice.">
+<meta property="og:title" content="AI models can read X-rays fast. Should they read them alone?">
+<meta property="og:description" content="A look at what the accuracy numbers actually mean once you account for how radiologists work in practice.">
 <meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display&family=Arimo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -52,19 +52,23 @@
 
 <article>
   <div class="wrap post-header">
-    <div class="tag"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="10"/><path d="M14 10v5l3 2"/></svg>The Basics</div>
-    <h1>What is pharmacogenomics?</h1>
-    <div class="byline">Medicine4life · July 16, 2026</div>
+    <div class="tag"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M11 8V5M15 8V5M11 20v3M15 20v3M8 11H5M8 15H5M20 11h3M20 15h3"/></svg>AI Diagnostics</div>
+    <h1>AI models can read X-rays fast. Should they read them alone?</h1>
+    <div class="byline">Sushil Dethaliya · July 8, 2026</div>
   </div>
 
-  
+  <div class="wrap"><img src="/images/uploads/420.png" alt="AI models can read X-rays fast. Should they read them alone?" class="post-banner reveal"></div>
 
   <div class="wrap post-body">
-<p>Pharmacogenomics is the study of how your genes affect the way your body responds to drugs. Specifically, it looks at how quickly you break a drug down, and whether a standard dose is likely to work well, do nothing, or cause side effects — for you personally.</p>
-<p>The short version: two people can take the exact same pill at the exact same dose and have completely different experiences, because their bodies process it differently at a genetic level. Certain genes control enzymes in the liver that metabolize drugs — some people have variants that make those enzymes fast, some slow, and some right in the middle.</p>
-<p>This isn&#39;t just theoretical. It already changes real prescribing decisions for a specific list of drugs — including some blood thinners, certain chemotherapy drugs, and several antidepressants — where testing can flag ahead of time if a standard dose is likely to be wrong for that patient.</p>
-<p>It&#39;s not yet a routine part of every prescription, mostly because the strong evidence only covers a specific set of drug-gene pairs, not medications in general. But it&#39;s a fast-growing area, and one more sign that &quot;one dose fits all&quot; is slowly becoming outdated.</p>
-<p>Want the deeper version? Read the full article: <a href="pharmacogenomics-why-your-dna-might-decide-which-drug-actually-works-for-you.html">Pharmacogenomics: why your DNA might decide which drug actually works for you</a>.</p>
+<p>Over the past two years, a wave of imaging models has posted accuracy numbers that, on paper, match or beat average radiologist performance on specific tasks — spotting a fracture, flagging a nodule, triaging a chest film for urgency. Vendors like to lead with those numbers. What they mention less is what &quot;accuracy&quot; was measured against.</p>
+<p>Most benchmark studies compare a model against a single read, on a curated dataset, with a clear ground truth established after the fact. Real clinical work looks nothing like that. A radiologist reading a chest film at 2am is working from a messy history, an inconsistent machine, and a patient who doesn&#39;t fit the training distribution.</p>
+<h2>Where the models genuinely help</h2>
+<p>The strongest evidence isn&#39;t for replacement — it&#39;s for triage and second opinion. Models that flag likely-urgent studies for earlier review have shown real reductions in time-to-diagnosis for conditions like pneumothorax and intracranial hemorrhage. That&#39;s a workflow improvement, not a diagnostic one, and it&#39;s still valuable.</p>
+<p class="pull">The question was never "can a model read a film." It's whether a model plus a clinician beats a clinician alone — and on that, the evidence is much thinner than the headlines suggest.</p>
+
+<h2>What to watch for</h2>
+<p>If you&#39;re evaluating a tool for your own practice, ask for performance data broken out by the equipment and population you&#39;ll actually be using it on — not just its overall benchmark score. A model tuned on one manufacturer&#39;s scanner can behave differently on another. That detail rarely makes it into a sales deck, but it&#39;s the one that determines whether the tool holds up in your hands.</p>
+<p>None of this is an argument against the technology. It&#39;s an argument for reading past the top-line number before it changes how you practice.</p>
 
   </div>
 

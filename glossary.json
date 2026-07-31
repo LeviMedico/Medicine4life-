@@ -1,9 +1,159 @@
 [
   {
+    "term": "Adaptive immunity",
+    "definition": "The immune system's more specific, learned defense that develops after exposure to a particular pathogen, providing longer-lasting and more targeted protection — the basis for how vaccines work.",
+    "image": "",
+    "slug": "adaptive-immunity"
+  },
+  {
+    "term": "Adjuvant therapy",
+    "definition": "Treatment given after the main treatment, such as surgery, to reduce the chance a disease returns — for example, chemotherapy given after a tumor has already been removed.",
+    "image": "",
+    "slug": "adjuvant-therapy"
+  },
+  {
+    "term": "Agonist",
+    "definition": "A drug or molecule that binds to a receptor and activates it, triggering a biological response — the opposite of an antagonist, which blocks that response.",
+    "image": "",
+    "slug": "agonist"
+  },
+  {
+    "term": "Allele",
+    "definition": "One version of a gene. Most genes come in at least two alleles, one inherited from each parent, which is why traits can vary between people.",
+    "image": "",
+    "slug": "allele"
+  },
+  {
+    "term": "Angiogenesis",
+    "definition": "The formation of new blood vessels. Tumors rely on angiogenesis to get the blood supply they need to grow, which is why some cancer drugs specifically target this process.",
+    "image": "",
+    "slug": "angiogenesis"
+  },
+  {
+    "term": "Antagonist",
+    "definition": "A drug or molecule that binds to a receptor without activating it, blocking that receptor from being triggered by the body's natural signaling molecules or other drugs.",
+    "image": "",
+    "slug": "antagonist"
+  },
+  {
+    "term": "Antibiotic resistance",
+    "definition": "When bacteria evolve to survive drugs that once killed them, making infections harder or impossible to treat with existing antibiotics.",
+    "image": "",
+    "slug": "antibiotic-resistance"
+  },
+  {
+    "term": "Antibody",
+    "definition": "A protein made by the immune system that recognizes and binds to a specific foreign substance, like a virus or bacteria, marking it for destruction.",
+    "image": "",
+    "slug": "antibody"
+  },
+  {
+    "term": "Antigen",
+    "definition": "Any substance — often a protein on a virus, bacteria, or abnormal cell — that the immune system recognizes as foreign and responds to by producing antibodies.",
+    "image": "",
+    "slug": "antigen"
+  },
+  {
+    "term": "Apoptosis",
+    "definition": "A normal, controlled process of cell death that the body uses to remove damaged or unneeded cells. Cancer cells often find ways to avoid apoptosis, letting them survive when they shouldn't.",
+    "image": "",
+    "slug": "apoptosis"
+  },
+  {
+    "term": "Arrhythmia",
+    "definition": "An abnormal heart rhythm — beating too fast, too slow, or irregularly — which can range from harmless to life-threatening depending on the type.",
+    "image": "",
+    "slug": "arrhythmia"
+  },
+  {
+    "term": "Atherosclerosis",
+    "definition": "The buildup of fatty plaque inside artery walls, which narrows the arteries over time and is a major underlying cause of heart attacks and strokes.",
+    "image": "",
+    "slug": "atherosclerosis"
+  },
+  {
+    "term": "Atrial fibrillation",
+    "definition": "A common type of irregular heart rhythm originating in the heart's upper chambers, which increases the risk of stroke and heart failure if untreated.",
+    "image": "",
+    "slug": "atrial-fibrillation"
+  },
+  {
+    "term": "Autoimmune disease",
+    "definition": "A condition where the immune system mistakenly attacks the body's own healthy tissue, as seen in conditions like rheumatoid arthritis or type 1 diabetes.",
+    "image": "",
+    "slug": "autoimmune-disease"
+  },
+  {
+    "term": "B cell",
+    "definition": "A type of white blood cell responsible for producing antibodies in response to a specific foreign substance.",
+    "image": "",
+    "slug": "b-cell"
+  },
+  {
+    "term": "Benign tumor",
+    "definition": "An abnormal growth that doesn't invade nearby tissue or spread to other parts of the body — not cancerous, though it can still occasionally cause problems depending on location or size.",
+    "image": "",
+    "slug": "benign-tumor"
+  },
+  {
+    "term": "Bioavailability",
+    "definition": "The proportion of a drug that actually reaches the bloodstream in an active form. A pill with low bioavailability needs a higher dose to have the same effect as an IV drug with 100% bioavailability.",
+    "image": "",
+    "slug": "bioavailability"
+  },
+  {
     "term": "Biomarker",
     "definition": "A measurable substance or signal in the body — like a blood protein, genetic marker, or vital sign — used to indicate the presence of a disease, how it's progressing, or how well a treatment is working.",
     "image": "",
     "slug": "biomarker"
+  },
+  {
+    "term": "Biopsy",
+    "definition": "A procedure that removes a small sample of tissue for laboratory examination, most often used to confirm or rule out a cancer diagnosis.",
+    "image": "",
+    "slug": "biopsy"
+  },
+  {
+    "term": "Biosimilar",
+    "definition": "A biologic drug that's highly similar to an already-approved biologic, similar to how a generic drug relates to a brand-name pill — usually cheaper, with no meaningful clinical difference.",
+    "image": "",
+    "slug": "biosimilar"
+  },
+  {
+    "term": "Black box warning",
+    "definition": "The FDA's most serious safety warning that can be placed on a drug label, highlighting a risk of serious or life-threatening side effects.",
+    "image": "",
+    "slug": "black-box-warning"
+  },
+  {
+    "term": "Breakthrough Therapy designation",
+    "definition": "An FDA status given to a drug showing early evidence it may offer a substantial improvement over existing treatments for a serious condition, which speeds up its review process.",
+    "image": "",
+    "slug": "breakthrough-therapy-designation"
+  },
+  {
+    "term": "CAR-T cell therapy",
+    "definition": "A cancer treatment that removes a patient's own immune cells, genetically re-engineers them to recognize cancer, and infuses them back in to attack the tumor.",
+    "image": "",
+    "slug": "car-t-cell-therapy"
+  },
+  {
+    "term": "Carrier (genetics)",
+    "definition": "Someone who has one copy of a gene variant for a recessive condition but doesn't have the condition themselves, since it takes two copies to cause disease.",
+    "image": "",
+    "slug": "carrier-genetics"
+  },
+  {
+    "term": "Cell-free DNA",
+    "definition": "Small fragments of DNA that float freely in the bloodstream, released by dying cells. Tumors shed cell-free DNA, which is what liquid biopsies and some MCED tests actually detect.",
+    "image": "",
+    "slug": "cell-free-dna"
+  },
+  {
+    "term": "Checkpoint inhibitor",
+    "definition": "A type of immunotherapy drug that blocks proteins cancer cells use to hide from the immune system, effectively taking the brakes off the body's own immune response.",
+    "image": "",
+    "slug": "checkpoint-inhibitor"
   },
   {
     "term": "Clinical trial phases (Phase 1/2/3)",
@@ -12,10 +162,142 @@
     "slug": "clinical-trial-phases-phase-1-2-3"
   },
   {
+    "term": "Cohort study",
+    "definition": "A research study that follows a group of people over time to see how certain exposures or characteristics relate to later health outcomes, without assigning treatment.",
+    "image": "",
+    "slug": "cohort-study"
+  },
+  {
+    "term": "Companion diagnostic",
+    "definition": "A test used alongside a specific drug to determine whether a patient has the biological marker that drug is designed to target, guiding whether that treatment is likely to work for them.",
+    "image": "",
+    "slug": "companion-diagnostic"
+  },
+  {
+    "term": "Contraindication",
+    "definition": "A specific situation or condition that makes a particular treatment or drug inadvisable or potentially harmful for a given patient.",
+    "image": "",
+    "slug": "contraindication"
+  },
+  {
     "term": "CRISPR",
     "definition": "A gene-editing technology that lets scientists precisely cut and modify specific sequences of DNA, most often described using the \"molecular scissors\" analogy. Used both in research and, increasingly, in approved therapies for genetic diseases.",
     "image": "",
     "slug": "crispr"
+  },
+  {
+    "term": "CT scan",
+    "definition": "Computed tomography — a scan that combines multiple X-ray images taken from different angles to create detailed cross-sectional images of the body.",
+    "image": "",
+    "slug": "ct-scan"
+  },
+  {
+    "term": "Cytokine storm",
+    "definition": "A dangerous, excessive release of cytokines that can cause the immune system to damage the body's own tissue, sometimes seen in severe infections.",
+    "image": "",
+    "slug": "cytokine-storm"
+  },
+  {
+    "term": "Cytokine",
+    "definition": "A small signaling protein released by immune cells that helps coordinate the body's immune response, including inflammation.",
+    "image": "",
+    "slug": "cytokine"
+  },
+  {
+    "term": "Digital pathology",
+    "definition": "The practice of scanning tissue samples into high-resolution digital images that can be analyzed on a screen, often with AI assistance, instead of solely under a microscope.",
+    "image": "",
+    "slug": "digital-pathology"
+  },
+  {
+    "term": "Dose-response curve",
+    "definition": "A graph showing how the effect of a drug changes as its dose increases, used to identify the most effective dose with the fewest side effects.",
+    "image": "",
+    "slug": "dose-response-curve"
+  },
+  {
+    "term": "Double-blind study",
+    "definition": "A trial design where neither the participants nor the researchers know who is receiving the real treatment versus a placebo, reducing the chance that expectations bias the results.",
+    "image": "",
+    "slug": "double-blind-study"
+  },
+  {
+    "term": "Drug half-life",
+    "definition": "The time it takes for the concentration of a drug in the body to drop by half, which determines how often a medication needs to be dosed.",
+    "image": "",
+    "slug": "drug-half-life"
+  },
+  {
+    "term": "Drug interaction",
+    "definition": "A change in how a drug behaves in the body caused by another drug, food, or supplement taken at the same time, which can increase, decrease, or otherwise alter its effect.",
+    "image": "",
+    "slug": "drug-interaction"
+  },
+  {
+    "term": "Ejection fraction",
+    "definition": "A measurement of how much blood the heart's main pumping chamber pushes out with each beat, used as a key indicator of heart function.",
+    "image": "",
+    "slug": "ejection-fraction"
+  },
+  {
+    "term": "Epigenetics",
+    "definition": "The study of how genes get switched on or off without changing the underlying DNA sequence — often influenced by environment, age, or lifestyle.",
+    "image": "",
+    "slug": "epigenetics"
+  },
+  {
+    "term": "Exome",
+    "definition": "The portion of the genome that actually codes for proteins — a small fraction of total DNA, but where most known disease-causing mutations are found.",
+    "image": "",
+    "slug": "exome"
+  },
+  {
+    "term": "False positive",
+    "definition": "A test result that incorrectly indicates a disease or condition is present when it actually isn't — a key limitation to weigh against any screening test's benefits.",
+    "image": "",
+    "slug": "false-positive"
+  },
+  {
+    "term": "Gene expression",
+    "definition": "The process by which information stored in a gene is actually used to produce a protein. Having a gene doesn't guarantee it's active — expression is what turns it on.",
+    "image": "",
+    "slug": "gene-expression"
+  },
+  {
+    "term": "Gene knockout",
+    "definition": "A research technique where a specific gene is deliberately disabled in a cell or organism, used to study what that gene normally does.",
+    "image": "",
+    "slug": "gene-knockout"
+  },
+  {
+    "term": "Gene therapy",
+    "definition": "A treatment approach that works by adding, removing, or correcting genetic material inside a patient's cells, rather than treating symptoms with a drug.",
+    "image": "",
+    "slug": "gene-therapy"
+  },
+  {
+    "term": "Generic drug",
+    "definition": "A copy of a brand-name drug with the same active ingredient, dose, and effect, sold after the original's patent protection expires — usually at a significantly lower price.",
+    "image": "",
+    "slug": "generic-drug"
+  },
+  {
+    "term": "Genome",
+    "definition": "The complete set of genetic material in an organism's cells — every gene and DNA sequence that makes up an individual.",
+    "image": "",
+    "slug": "genome"
+  },
+  {
+    "term": "Genotype",
+    "definition": "The specific genetic makeup of an organism — the exact combination of gene variants a person carries, whether or not those genes are actively expressed.",
+    "image": "",
+    "slug": "genotype"
+  },
+  {
+    "term": "Germline mutation",
+    "definition": "A genetic change present in egg or sperm cells, meaning it can be passed down to children and is present in every cell of their body.",
+    "image": "",
+    "slug": "germline-mutation"
   },
   {
     "term": "GLP-1 (drug class)",
@@ -24,10 +306,166 @@
     "slug": "glp-1-drug-class"
   },
   {
+    "term": "HbA1c",
+    "definition": "A blood test measuring average blood sugar levels over the past two to three months, used to diagnose and monitor diabetes.",
+    "image": "",
+    "slug": "hba1c"
+  },
+  {
+    "term": "Herd immunity",
+    "definition": "A level of immunity in a population high enough that disease spread is slowed or stopped, indirectly protecting even those who aren't immune themselves.",
+    "image": "",
+    "slug": "herd-immunity"
+  },
+  {
+    "term": "Immunotherapy",
+    "definition": "A category of treatments that work by helping a patient's own immune system recognize and attack disease, most commonly used in cancer treatment.",
+    "image": "",
+    "slug": "immunotherapy"
+  },
+  {
+    "term": "Incubation period",
+    "definition": "The time between exposure to a pathogen and when symptoms first appear, during which an infected person may already be contagious without knowing it.",
+    "image": "",
+    "slug": "incubation-period"
+  },
+  {
+    "term": "Induced pluripotent stem cell",
+    "definition": "An adult cell that has been reprogrammed in the lab back into a stem-cell-like state, capable of becoming almost any cell type, without needing to come from an embryo.",
+    "image": "",
+    "slug": "induced-pluripotent-stem-cell"
+  },
+  {
+    "term": "Informed consent",
+    "definition": "The process of fully explaining a treatment or trial's risks, benefits, and alternatives to a patient before they agree to participate, ensuring their decision is voluntary and well-informed.",
+    "image": "",
+    "slug": "informed-consent"
+  },
+  {
+    "term": "Innate immunity",
+    "definition": "The body's fast, general-purpose immune defense that responds to any threat the same way, without needing prior exposure — the first line of defense before more targeted immunity kicks in.",
+    "image": "",
+    "slug": "innate-immunity"
+  },
+  {
+    "term": "Insulin resistance",
+    "definition": "A condition where the body's cells respond poorly to insulin, forcing the pancreas to produce more of it to keep blood sugar under control — a key step on the path to type 2 diabetes.",
+    "image": "",
+    "slug": "insulin-resistance"
+  },
+  {
+    "term": "Karyotype",
+    "definition": "A picture of a person's full set of chromosomes, arranged and sized, used to detect large-scale genetic abnormalities like an extra or missing chromosome.",
+    "image": "",
+    "slug": "karyotype"
+  },
+  {
+    "term": "Liquid biopsy",
+    "definition": "A blood test that looks for signs of cancer — like fragments of tumor DNA — instead of requiring a surgical tissue sample.",
+    "image": "",
+    "slug": "liquid-biopsy"
+  },
+  {
+    "term": "Malignant tumor",
+    "definition": "A cancerous growth capable of invading nearby tissue and spreading to other parts of the body through the bloodstream or lymphatic system.",
+    "image": "",
+    "slug": "malignant-tumor"
+  },
+  {
     "term": "Median survival",
     "definition": "In a clinical trial, the point at which half of the participants have died and half are still alive. It's a standard way to compare how long people typically survive on one treatment versus another.",
     "image": "",
     "slug": "median-survival"
+  },
+  {
+    "term": "Meta-analysis",
+    "definition": "A statistical method that combines the results of multiple separate studies on the same question into one overall estimate, increasing statistical power beyond any single study.",
+    "image": "",
+    "slug": "meta-analysis"
+  },
+  {
+    "term": "Metastasis",
+    "definition": "The spread of cancer cells from where they started to a different part of the body, forming new tumors. Most cancer deaths are caused by metastasis rather than the original tumor.",
+    "image": "",
+    "slug": "metastasis"
+  },
+  {
+    "term": "Monoclonal antibody",
+    "definition": "A lab-made antibody engineered to recognize and bind to one specific target, such as a protein on a cancer cell. Many modern cancer and autoimmune drugs are built this way.",
+    "image": "",
+    "slug": "monoclonal-antibody"
+  },
+  {
+    "term": "MRI",
+    "definition": "Magnetic resonance imaging — a scan that uses magnetic fields and radio waves, not radiation, to produce detailed images of soft tissue like the brain, muscles, and organs.",
+    "image": "",
+    "slug": "mri"
+  },
+  {
+    "term": "mRNA vaccine",
+    "definition": "A vaccine that delivers a temporary set of instructions telling cells to produce a small piece of a virus, training the immune system to recognize it without ever exposing the body to the real pathogen.",
+    "image": "",
+    "slug": "mrna-vaccine"
+  },
+  {
+    "term": "Neoadjuvant therapy",
+    "definition": "Treatment given before the main treatment, often to shrink a tumor and make surgery more effective or possible.",
+    "image": "",
+    "slug": "neoadjuvant-therapy"
+  },
+  {
+    "term": "Next-generation sequencing",
+    "definition": "A fast, high-volume method of reading DNA that can sequence millions of genetic fragments at once, making modern genomic testing dramatically cheaper and quicker than older methods.",
+    "image": "",
+    "slug": "next-generation-sequencing"
+  },
+  {
+    "term": "Off-label use",
+    "definition": "Prescribing an approved drug for a condition, dosage, or population it wasn't specifically approved for, based on a doctor's clinical judgment — legal, but not the same as FDA-approved use.",
+    "image": "",
+    "slug": "off-label-use"
+  },
+  {
+    "term": "Oncogene",
+    "definition": "A gene that, when mutated or overactive, can drive a cell to become cancerous by promoting uncontrolled growth.",
+    "image": "",
+    "slug": "oncogene"
+  },
+  {
+    "term": "Orphan drug",
+    "definition": "A drug developed specifically to treat a rare disease, often given special regulatory incentives since small patient populations make development commercially difficult otherwise.",
+    "image": "",
+    "slug": "orphan-drug"
+  },
+  {
+    "term": "Overall survival",
+    "definition": "In a clinical trial, the length of time patients live, regardless of whether their disease progressed — often considered the most meaningful trial outcome, though also the slowest to measure.",
+    "image": "",
+    "slug": "overall-survival"
+  },
+  {
+    "term": "Palliative care",
+    "definition": "Medical care focused on relieving pain and other symptoms of a serious illness, aimed at improving quality of life rather than curing the underlying disease.",
+    "image": "",
+    "slug": "palliative-care"
+  },
+  {
+    "term": "Pathogen",
+    "definition": "Any organism — such as a virus, bacterium, or fungus — capable of causing disease.",
+    "image": "",
+    "slug": "pathogen"
+  },
+  {
+    "term": "PET scan",
+    "definition": "Positron emission tomography — a scan that uses a small amount of radioactive tracer to show how tissues and organs are functioning, often used to detect cancer activity rather than just structure.",
+    "image": "",
+    "slug": "pet-scan"
+  },
+  {
+    "term": "Pharmacodynamics",
+    "definition": "The study of what a drug actually does to the body — its mechanism of action and the relationship between its concentration and its effect.",
+    "image": "",
+    "slug": "pharmacodynamics"
   },
   {
     "term": "Pharmacogenomics",
@@ -36,10 +474,64 @@
     "slug": "pharmacogenomics"
   },
   {
+    "term": "Pharmacokinetics",
+    "definition": "The study of how a drug moves through the body — how it's absorbed, distributed, broken down, and eliminated over time.",
+    "image": "",
+    "slug": "pharmacokinetics"
+  },
+  {
+    "term": "Phenotype",
+    "definition": "The observable traits a person actually has — like eye color or disease risk — resulting from the interaction between their genotype and environment.",
+    "image": "",
+    "slug": "phenotype"
+  },
+  {
+    "term": "Placebo",
+    "definition": "An inactive substance with no therapeutic effect, given to a control group in a trial so researchers can measure how much of a treatment's apparent benefit is due to the drug itself, versus expectation or chance.",
+    "image": "",
+    "slug": "placebo"
+  },
+  {
+    "term": "Point-of-care testing",
+    "definition": "Medical testing performed right where a patient is being seen — a clinic, ambulance, or bedside — rather than samples being sent to a central lab, trading some precision for speed.",
+    "image": "",
+    "slug": "point-of-care-testing"
+  },
+  {
+    "term": "Polygenic risk score",
+    "definition": "A single number estimating a person's genetic risk for a condition, calculated from many small genetic variants combined, rather than one single gene.",
+    "image": "",
+    "slug": "polygenic-risk-score"
+  },
+  {
+    "term": "Precision oncology",
+    "definition": "An approach to cancer treatment that matches specific drugs to the specific genetic mutations driving an individual patient's tumor, rather than treating all tumors of a given type the same way.",
+    "image": "",
+    "slug": "precision-oncology"
+  },
+  {
+    "term": "Progression-free survival",
+    "definition": "In a clinical trial, the length of time a patient lives without their disease getting measurably worse — a common way to judge how well a treatment is working.",
+    "image": "",
+    "slug": "progression-free-survival"
+  },
+  {
+    "term": "Randomized controlled trial",
+    "definition": "A study design where participants are randomly assigned to receive either the treatment being tested or a comparison treatment, considered the gold standard for proving whether a treatment actually works.",
+    "image": "",
+    "slug": "randomized-controlled-trial"
+  },
+  {
     "term": "RAS mutation",
     "definition": "A change in the RAS family of genes that causes cells to receive a constant \"keep growing\" signal. RAS mutations drive a significant share of cancers, including most pancreatic cancers, and are a major target for newer targeted cancer drugs.",
     "image": "",
     "slug": "ras-mutation"
+  },
+  {
+    "term": "Real-world evidence",
+    "definition": "Data about a treatment's safety and effectiveness gathered from actual patient care and everyday use, rather than from the more controlled setting of a clinical trial.",
+    "image": "",
+    "slug": "real-world-evidence"
   },
   {
     "term": "REDs (Relative Energy Deficiency in Sport)",
@@ -48,9 +540,117 @@
     "slug": "reds-relative-energy-deficiency-in-sport"
   },
   {
+    "term": "Remission",
+    "definition": "A period where signs and symptoms of a disease, most often cancer, have decreased or disappeared. It doesn't always mean the disease is permanently gone.",
+    "image": "",
+    "slug": "remission"
+  },
+  {
+    "term": "Sensitivity and specificity",
+    "definition": "Two measures of how good a medical test is: sensitivity is how well it catches true cases of a disease, while specificity is how well it correctly rules out people who don't have it.",
+    "image": "",
+    "slug": "sensitivity-and-specificity"
+  },
+  {
+    "term": "Single nucleotide polymorphism (SNP)",
+    "definition": "A single-letter difference in DNA sequence between people, and the most common type of genetic variation. Many polygenic risk scores are built from thousands of SNPs.",
+    "image": "",
+    "slug": "single-nucleotide-polymorphism-snp"
+  },
+  {
+    "term": "Somatic mutation",
+    "definition": "A genetic change that happens in a body cell after conception, rather than being inherited. These mutations aren't passed to children but can drive diseases like cancer.",
+    "image": "",
+    "slug": "somatic-mutation"
+  },
+  {
+    "term": "Statin",
+    "definition": "A class of drugs that lowers cholesterol by blocking an enzyme the liver uses to produce it, widely used to reduce the risk of heart attack and stroke.",
+    "image": "",
+    "slug": "statin"
+  },
+  {
+    "term": "Stem cell",
+    "definition": "An unspecialized cell capable of developing into many different cell types in the body, and of renewing itself through cell division — the basis for many regenerative medicine approaches.",
+    "image": "",
+    "slug": "stem-cell"
+  },
+  {
+    "term": "Stent",
+    "definition": "A small mesh tube inserted into a narrowed or blocked blood vessel to hold it open and restore normal blood flow.",
+    "image": "",
+    "slug": "stent"
+  },
+  {
+    "term": "Systematic review",
+    "definition": "A structured, comprehensive summary of all available research on a specific question, following a defined method to reduce bias in which studies get included.",
+    "image": "",
+    "slug": "systematic-review"
+  },
+  {
+    "term": "T cell",
+    "definition": "A type of white blood cell that plays a central role in the immune system, either directly destroying infected or abnormal cells or coordinating other immune cells.",
+    "image": "",
+    "slug": "t-cell"
+  },
+  {
     "term": "Targeted therapy",
     "definition": "A treatment designed to act on a specific molecule or pathway driving a disease — as opposed to older treatments like traditional chemotherapy, which broadly affect fast-dividing cells regardless of the underlying cause.",
     "image": "",
     "slug": "targeted-therapy"
+  },
+  {
+    "term": "Telomere",
+    "definition": "A protective cap of repetitive DNA at the end of each chromosome. Telomeres shorten with each cell division, which is one reason they're studied as a marker of cellular aging.",
+    "image": "",
+    "slug": "telomere"
+  },
+  {
+    "term": "Therapeutic index",
+    "definition": "A measure of how much of a drug's dose range separates an effective dose from a toxic one. A narrow therapeutic index means small dosing errors can be dangerous.",
+    "image": "",
+    "slug": "therapeutic-index"
+  },
+  {
+    "term": "Tumor microenvironment",
+    "definition": "The mix of cells, blood vessels, and signaling molecules surrounding a tumor, which can either help suppress it or actively support its growth and spread.",
+    "image": "",
+    "slug": "tumor-microenvironment"
+  },
+  {
+    "term": "Tumor staging",
+    "definition": "A standardized system (often called TNM) describing how large a tumor is and how far it has spread, used to guide treatment decisions and estimate prognosis.",
+    "image": "",
+    "slug": "tumor-staging"
+  },
+  {
+    "term": "Tumor suppressor gene",
+    "definition": "A gene that normally works to stop uncontrolled cell growth. Cancer often develops when these genes are damaged or turned off, removing that safety check.",
+    "image": "",
+    "slug": "tumor-suppressor-gene"
+  },
+  {
+    "term": "Viral vector",
+    "definition": "A modified, harmless virus used as a delivery vehicle to carry genetic material into cells — used in some vaccines and gene therapies.",
+    "image": "",
+    "slug": "viral-vector"
+  },
+  {
+    "term": "Whole exome sequencing",
+    "definition": "A genetic test that reads only the protein-coding portions of the genome, which make up about 1-2% of DNA but contain most known disease-causing mutations.",
+    "image": "",
+    "slug": "whole-exome-sequencing"
+  },
+  {
+    "term": "Whole genome sequencing",
+    "definition": "A lab process that reads out a person's entire DNA sequence, letter by letter — the most complete form of genetic testing available.",
+    "image": "",
+    "slug": "whole-genome-sequencing"
+  },
+  {
+    "term": "Zygosity",
+    "definition": "Whether the two copies of a gene a person carries are identical (homozygous) or different (heterozygous) — relevant to whether a recessive trait or condition shows up.",
+    "image": "",
+    "slug": "zygosity"
   }
 ]

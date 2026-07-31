@@ -1,10 +1,42 @@
 [
   {
-    "title": "FDA clears a new at-home HPV self-collection test",
-    "date": "2026-07-08T09:00:00.000Z",
-    "dateDisplay": "July 8, 2026",
-    "summary": "Patients can now collect their own sample for cervical cancer screening at home and mail it in, instead of requiring an in-clinic pelvic exam for the initial test.",
-    "sourceName": "FDA",
-    "sourceUrl": ""
+    "title": "\"GSK's Jideytro Wins Early FDA Approval: A New Targeted Therapy for ROS1-Positive Lung Cancer\"",
+    "date": "2026-07-22T21:39:46.021Z",
+    "dateDisplay": "July 22, 2026",
+    "summary": "'\"Learn how GSK’s Jideytro, a new ROS1-targeted therapy, gained early FDA approval and could transform treatment for patients with ROS1-positive lung cancer.\"'",
+    "image": "",
+    "sourceName": "",
+    "sourceUrl": "",
+    "link": "news-gsks-jideytro-wins-early-fda-approval-a-new-targeted-therapy-for-ros1-positive-lung-cancer.html"
+  },
+  {
+    "title": "FDA Approves the First Oral PCSK9 Inhibitor, Offering an Alternative to Injections for High Cholesterol",
+    "date": "2026-07-18T01:55:17.846Z",
+    "dateDisplay": "July 18, 2026",
+    "summary": "Merck's Lipfendra becomes the first pill in its drug class — until now, PCSK9 inhibitors for high cholesterol required regular injections.",
+    "image": "/images/uploads/1230.jpg",
+    "sourceName": "Merck",
+    "sourceUrl": "",
+    "link": "news-fda-approves-the-first-oral-pcsk9-inhibitor-offering-an-alternative-to-injections-for-high-cholesterol.html"
+  },
+  {
+    "title": "GSK’s Targeted Cancer Therapy Shows Promising Results in Phase 3 Small-Cell Lung Cancer Trial",
+    "date": "2026-07-10T23:13:53.475Z",
+    "dateDisplay": "July 10, 2026",
+    "summary": "'\"GSK’s targeted cancer therapy shows promising Phase 3 trial results in small-cell lung cancer, offering new hope through precision oncology and ADC technology.\"'",
+    "image": "/images/uploads/438.jpg",
+    "sourceName": "",
+    "sourceUrl": "",
+    "link": "news-gsk’s-targeted-cancer-therapy-shows-promising-results-in-phase-3-small-cell-lung-cancer-trial.html"
+  },
+  {
+    "title": "Novo Nordisk Launches Once-Weekly Insulin 'Awiqli' in India.",
+    "date": "2026-07-09T13:38:19.026Z",
+    "dateDisplay": "July 9, 2026",
+    "summary": "Novo Nordisk Launches Once-Weekly Insulin 'Awiqli' in India: A Major Milestone in Diabetes Care.",
+    "image": "/images/uploads/287.avif",
+    "sourceName": "",
+    "sourceUrl": "",
+    "link": "news-novo-nordisk-launches-once-weekly-insulin-awiqli-in-india-a-major-milestone-in-diabetes-care.html"
   }
 ]
