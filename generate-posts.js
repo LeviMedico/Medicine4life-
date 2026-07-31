@@ -204,15 +204,16 @@ const posts = postFiles
     fs.writeFileSync(link, renderPostPage({ title, dateDisplay, tag, icon, htmlBody, image, author, summary }));
 
     return {
-      title,
-      date: data.date || "",
-      dateDisplay,
-      tag,
-      summary: summary.length > 160 ? summary.slice(0, 157) + "..." : summary,
-      readMinutes,
-      image,
-      link,
-    };
+  title,
+  date: data.date || "",
+  dateDisplay,
+  tag,
+  summary: summary.length > 160 ? summary.slice(0, 157) + "...": summary,
+  content: body,
+  readMinutes,
+  image,
+  link,
+};
   })
   .sort((a, b) => new Date(b.date) - new Date(a.date));
 
