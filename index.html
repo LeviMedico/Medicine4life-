@@ -1,281 +1,247 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medicine4Life — Learn medicine with clarity</title>
+  <meta name="description" content="Medicine4Life is an Android learning platform for medical learners, combining an AI Clinical Tutor, MedQuest games, reviewed articles, medicines, quizzes, flashcards, and unified mastery.">
+  <meta name="theme-color" content="#f4f8ff">
+  <meta property="og:title" content="Medicine4Life — Learn medicine with clarity">
+  <meta property="og:description" content="AI-guided clinical learning, focused games, trusted medicine information, and measurable mastery in one Android app.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://medicine4life.org/">
+  <link rel="canonical" href="https://medicine4life.org/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+  <link rel="icon" type="image/png" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/favicon-180.png">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3611MH8QQQ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-3611MH8QQQ');
-    gtag('config', 'AW-18331622783');
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2371873453043295"
-     crossorigin="anonymous"></script>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Medicine4life — Medical technology, explained clearly</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display&family=Arimo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/png" href="images/favicon-32.png">
-<link rel="apple-touch-icon" href="images/favicon-180.png">
-<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
-<body>
+<body class="app-site">
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-<header class="site-header">
-  <div class="wrap">
-    <div class="logo"><a href="index.html" style="display:flex;"><img src="images/logo.png" alt="Medicine4life"></a></div>
-    <nav class="site-nav">
-      <a href="index.html" class="active">Home</a>
-      <a href="blog.html">Articles</a>
-      <a href="news.html">News</a>
-      <a href="the-basics.html">The Basics</a>
-      <a href="student-corner.html">Student Corner</a>
-      <a href="fmge-prep.html">FMGE Prep</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="disease-library.html">Disease Library</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="search.html" class="nav-search" aria-label="Search">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+  <header class="app-header" data-header>
+    <div class="app-shell header-inner">
+      <a class="app-brand" href="index.html" aria-label="Medicine4Life home">
+        <img src="images/favicon-180.png" alt="" width="64" height="64">
+        <span>Medicine4Life</span>
       </a>
-    </nav>
-  </div>
-</header>
 
-<section class="hero">
-  <canvas id="heroParticles" class="hero-particles"></canvas>
-  <div class="hero-grid-overlay"></div>
-  <div class="hero-corner tl"></div>
-  <div class="hero-corner tr"></div>
-  <div class="hero-corner bl"></div>
-  <div class="hero-corner br"></div>
-  <div class="wrap">
-    <div class="eyebrow">A medical student's notes on medical technology</div>
-    <h1>Where medicine meets what's next.</h1>
-    <p>Plain-language coverage of the tools, devices, and discoveries changing how care actually gets delivered — written by a medical student, not a press release.</p>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation" data-menu-button>
+        <span></span><span></span><span></span>
+      </button>
 
-    <svg class="pulse-divider" viewBox="0 0 700 64" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,32 L120,32 L145,10 L165,54 L185,32 L210,32 L230,20 L250,32 L700,32" />
-    </svg>
-  </div>
-</section>
-
-<main class="wrap">
-
-  <div id="featured-slot"></div>
-
-  <div class="filters" id="filters" style="display:none;">
-    <div class="chip active" data-filter="all">All</div>
-    <div class="chip" data-filter="AI Diagnostics">AI Diagnostics</div>
-    <div class="chip" data-filter="Wearables">Wearables</div>
-    <div class="chip" data-filter="Diagnostics">Diagnostics</div>
-    <div class="chip" data-filter="Genomics">Genomics</div>
-  </div>
-
-  <div class="section-label" id="rest-label" style="display:none;">More from the blog</div>
-
-  <div id="posts" class="card-grid"></div>
-
-  <div style="text-align:center; margin: 32px 0 10px;">
-    <a class="back-link" href="blog.html">See all articles &rarr;</a>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <span class="brand-mark"><svg width="16" height="16" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15h6l3-9 4 18 3-9h6"/></svg>Medicine4life — medical technology, explained clearly</span>
-    <span class="footer-owner">Owned by — Sushil Dethaliya</span>
-    <div class="footer-social">
-      <a href="https://www.instagram.com/medicine4life__?igsh=MW44NHNyOGFtdzhuOA%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Medicine4life on Instagram">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </a>
+      <nav class="app-nav" id="primary-navigation" aria-label="Primary navigation" data-menu>
+        <a href="#features">Features</a>
+        <a href="#tutor">AI Tutor</a>
+        <a href="#medquest">MedQuest</a>
+        <a href="blog.html">Articles</a>
+        <a href="about.html">About</a>
+        <span class="testing-pill"><span></span> Closed testing soon</span>
+      </nav>
     </div>
-    <span class="footer-legal"><a href="privacy.html">Privacy Policy</a> · <a href="disclaimer.html">Disclaimer</a></span>
-    <span>&copy; 2026</span>
-  </div>
-</footer>
+  </header>
 
-<script>
-const ICONS = {
-  "AI Diagnostics": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M11 8V5M15 8V5M11 20v3M15 20v3M8 11H5M8 15H5M20 11h3M20 15h3"/></svg>',
-  "Wearables": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="8" width="10" height="12" rx="3"/><path d="M11 8V4h6v4M11 20v4h6v-4"/><circle cx="14" cy="14" r="2"/></svg>',
-  "Diagnostics": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7l-7 12a2 2 0 0 0 2 3h14a2 2 0 0 0 2-3l-7-12V3"/><path d="M10 3h8"/><path d="M8 18h12"/></svg>',
-  "Genomics": '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2c9 7 9 7 0 14c9 7 9 7 0 14"/><path d="M20 2c-9 7-9 7 0 14c-9 7-9 7 0 14"/><path d="M8.5 5.5h13M8.5 12.5h13M8.5 15.5h13M8.5 22.5h13"/></svg>'
-};
-const DEFAULT_ICON = ICONS["Diagnostics"];
-
-fetch('posts.json')
-  .then(response => response.json())
-  .then(posts => {
-    const featuredSlot = document.getElementById('featured-slot');
-    const container = document.getElementById('posts');
-
-    if (!posts.length) {
-      featuredSlot.innerHTML = '<p style="padding: 40px 0; color: var(--ink-soft);">No posts yet, write your first one in the CMS and it will show up here.</p>';
-      return;
-    }
-
-    const [first, ...rest] = posts;
-    const restCapped = rest.slice(0, 3);
-    const firstIcon = ICONS[first.tag] || DEFAULT_ICON;
-
-    featuredSlot.innerHTML = `
-      <a class="featured reveal" href="${first.link}" data-tag="${first.tag || ''}">
-        <div class="featured-img">${first.image ? `<img src="${first.image}" alt="" style="width:100%;height:100%;object-fit:cover;">` : firstIcon}</div>
-        <div class="featured-body">
-          <div class="tag">${firstIcon}${first.tag || 'Diagnostics'}</div>
-          <h2>${first.title}</h2>
-          <p>${first.summary || ''}</p>
-          <div class="meta">${first.readMinutes ? first.readMinutes + ' min read' : ''}${first.dateDisplay ? ' · Newest' : ''}</div>
-        </div>
-      </a>`;
-
-    if (restCapped.length) {
-      document.getElementById('filters').style.display = 'flex';
-      document.getElementById('rest-label').style.display = 'block';
-    }
-
-    container.innerHTML = restCapped.map(post => {
-      const icon = ICONS[post.tag] || DEFAULT_ICON;
-      const thumb = post.image ? `<img src="${post.image}" alt="" style="width:100%;height:100%;object-fit:cover;">` : icon;
-      return `
-        <a class="grid-card reveal" href="${post.link}" data-tag="${post.tag || ''}">
-          <div class="grid-img">${thumb}</div>
-          <div class="grid-body">
-            <div class="tag">${icon}${post.tag || 'Diagnostics'}</div>
-            <h3>${post.title}</h3>
-            <span>${post.readMinutes ? post.readMinutes + ' min read' : ''}</span>
+  <main id="main">
+    <section class="hero-section">
+      <div class="hero-orb hero-orb-one"></div>
+      <div class="hero-orb hero-orb-two"></div>
+      <div class="app-shell hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Built for medical learners</div>
+          <h1>Learn medicine with <span>clarity, structure,</span> and momentum.</h1>
+          <p class="hero-lead">A focused Android learning platform that brings clinical explanations, active recall, medicine discovery, reviewed reading, and mastery tracking into one calm study space.</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#experience">
+              Explore the experience
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="secondary-button" href="blog.html">Read reviewed articles</a>
           </div>
-        </a>`;
-    }).join('');
+          <div class="hero-notes" aria-label="Product highlights">
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Medical education only</span>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Source-aware content</span>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> No account required</span>
+          </div>
+        </div>
 
-    document.querySelectorAll('.chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-        const filter = chip.dataset.filter;
-        document.querySelectorAll('[data-tag]').forEach(card => {
-          const show = filter === 'all' || card.dataset.tag === filter;
-          card.style.display = show ? '' : 'none';
-        });
-      });
-    });
+        <div class="device-stage reveal" aria-label="Real Medicine4Life app screens">
+          <div class="device-glow"></div>
+          <div class="floating-note note-top"><span>AI</span> Clinical learning</div>
+          <div class="floating-note note-bottom"><span>20%</span> Unified mastery</div>
+          <figure class="phone phone-back phone-left">
+            <img src="images/app-screens/ai-tutor.png" alt="Medicine4Life AI Clinical Tutor screen" width="1080" height="2400" decoding="async">
+          </figure>
+          <figure class="phone phone-main">
+            <img src="images/app-screens/home.png" alt="Medicine4Life home study dashboard" width="1080" height="2400" decoding="async" fetchpriority="high">
+          </figure>
+          <figure class="phone phone-back phone-right">
+            <img src="images/app-screens/medquest.png" alt="Medicine4Life MedQuest topic paths screen" width="1080" height="2400" decoding="async">
+          </figure>
+        </div>
+      </div>
+    </section>
 
-    window.initReveal();
-  })
-  .catch(error => {
-    document.getElementById('featured-slot').innerHTML =
-      '<p style="padding: 40px 0; color: var(--ink-soft);">Unable to load posts right now.</p>';
-    console.error(error);
-  });
-</script>
-<script src="script.js" defer></script>
-<script>
-(function() {
-  const canvas = document.getElementById('heroParticles');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const hero = canvas.closest('.hero');
-  let w, h;
+    <section class="proof-strip" aria-label="Medicine4Life platform areas">
+      <div class="app-shell proof-grid">
+        <div><strong>One app</strong><span>Study, play, read, review</span></div>
+        <div><strong>Clinical focus</strong><span>Built around medical subjects</span></div>
+        <div><strong>Active learning</strong><span>Quiz, recall, decode, compare</span></div>
+        <div><strong>Visible progress</strong><span>Mastery across every activity</span></div>
+      </div>
+    </section>
 
-  function resize() {
-    w = canvas.width = hero.offsetWidth;
-    h = canvas.height = hero.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
+    <section class="section" id="features">
+      <div class="app-shell">
+        <div class="section-heading centered reveal">
+          <span class="section-kicker">One connected learning system</span>
+          <h2>Everything has a purpose. Everything builds mastery.</h2>
+          <p>Medicine4Life connects short study sessions to a shared progress model, so learning never feels like a collection of disconnected tools.</p>
+        </div>
 
-  const mouse = { x: w / 2, y: h / 2, active: false };
-  hero.addEventListener('mousemove', (e) => {
-    const rect = hero.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-    mouse.active = true;
+        <div class="feature-grid" id="experience">
+          <article class="feature-card feature-blue reveal">
+            <div class="feature-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4a9 9 0 0 0-5 16.5V25h10v-4.5A9 9 0 0 0 16 4Z"/><path d="M12 28h8M11 15h10M16 10v10"/></svg></div>
+            <span class="feature-label">Understand</span>
+            <h3>AI Clinical Tutor</h3>
+            <p>Ask for an explanation, compare conditions, work through a case, generate a quiz, or turn a topic into flashcards.</p>
+          </article>
 
-    const px = mouse.x / rect.width - 0.5;
-    const py = mouse.y / rect.height - 0.5;
-    document.querySelectorAll('.hero-corner').forEach(el => {
-      el.style.transform = `translate(${px * 10}px, ${py * 10}px)`;
-    });
-  });
-  hero.addEventListener('mouseleave', () => { mouse.active = false; });
+          <article class="feature-card feature-purple reveal">
+            <div class="feature-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 8h18v16H7z"/><path d="M11 13h10M11 18h6"/><path d="m22 22 4 4"/></svg></div>
+            <span class="feature-label">Recall</span>
+            <h3>Quizzes & flashcards</h3>
+            <p>Practice high-yield concepts in focused sessions and review saved AI flashcards at your own pace.</p>
+          </article>
 
-  const COUNT = window.innerWidth < 700 ? 35 : 70;
-  const particles = [];
-  for (let i = 0; i < COUNT; i++) {
-    particles.push({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      r: Math.random() * 1.5 + 0.5,
-    });
-  }
+          <article class="feature-card feature-teal reveal">
+            <div class="feature-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 6h16v20H8z"/><path d="M12 11h8M12 16h8M12 21h5"/></svg></div>
+            <span class="feature-label">Discover</span>
+            <h3>Medicine library</h3>
+            <p>Search medicines by generic or brand name with source-aware information assembled from authoritative public datasets.</p>
+          </article>
 
-  function tick() {
-    ctx.clearRect(0, 0, w, h);
+          <article class="feature-card feature-green reveal">
+            <div class="feature-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 7h8a5 5 0 0 1 5 5v13h-8a5 5 0 0 0-5 2V7Z"/><path d="M26 7h-8a5 5 0 0 0-5 5"/></svg></div>
+            <span class="feature-label">Read</span>
+            <h3>Clinical reading</h3>
+            <p>Original Medicine4Life articles with authorship, medical-review status, references, and scheduled review dates.</p>
+          </article>
 
-    for (const p of particles) {
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0 || p.x > w) p.vx *= -1;
-      if (p.y < 0 || p.y > h) p.vy *= -1;
+          <article class="feature-card feature-orange reveal">
+            <div class="feature-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 24V14M13 24V8M20 24V17M27 24V5"/><path d="M4 27h25"/></svg></div>
+            <span class="feature-label">Measure</span>
+            <h3>Unified mastery</h3>
+            <p>See quiz accuracy, flashcard confidence, game performance, subject strength, streaks, and recent learning together.</p>
+          </article>
 
-      if (mouse.active) {
-        const dx = mouse.x - p.x;
-        const dy = mouse.y - p.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 160) {
-          const force = (1 - dist / 160) * 0.02;
-          p.x -= dx * force;
-          p.y -= dy * force;
-        }
-      }
-    }
+          <article class="feature-card feature-navy reveal">
+            <div class="feature-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M10 10h12l4 6-4 6H10l-4-6 4-6Z"/><circle cx="12" cy="16" r="2"/><path d="M20 14v4M18 16h4"/></svg></div>
+            <span class="feature-label">Play</span>
+            <h3>MedQuest games</h3>
+            <p>Decode names, match medicines, and solve diagnostic cases across subject-based paths and difficulty levels.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
-          ctx.strokeStyle = `rgba(36,184,140,${0.12 * (1 - dist / 120)})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.stroke();
-        }
-      }
-      if (mouse.active) {
-        const dx = mouse.x - particles[i].x;
-        const dy = mouse.y - particles[i].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 160) {
-          ctx.strokeStyle = `rgba(110,231,197,${0.25 * (1 - dist / 160)})`;
-          ctx.beginPath();
-          ctx.moveTo(mouse.x, mouse.y);
-          ctx.lineTo(particles[i].x, particles[i].y);
-          ctx.stroke();
-        }
-      }
-    }
+    <section class="section product-section" id="tutor">
+      <div class="app-shell product-grid">
+        <div class="product-visual tutor-visual reveal">
+          <div class="visual-card visual-card-one">Explain a concept</div>
+          <div class="visual-card visual-card-two">Create flashcards</div>
+          <figure class="single-phone"><img src="images/app-screens/ai-tutor.png" alt="Real AI Clinical Tutor mobile screen" width="1080" height="2400" loading="lazy" decoding="async"></figure>
+        </div>
 
-    for (const p of particles) {
-      ctx.fillStyle = 'rgba(110,231,197,0.7)';
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-    }
+        <div class="product-copy reveal">
+          <span class="section-kicker">AI Clinical Tutor</span>
+          <h2>A clinical learning conversation—not an answer box.</h2>
+          <p>Medicine4Life’s tutor is designed for educational reasoning. It can explain, compare, quiz, simplify, and build active-recall material while keeping the learner in control.</p>
+          <ul class="check-list">
+            <li><span>01</span><div><strong>Start naturally</strong><p>Ask a topic in your own words or begin from a focused prompt.</p></div></li>
+            <li><span>02</span><div><strong>Take it further</strong><p>Move directly into comparisons, quizzes, simpler explanations, or flashcards.</p></div></li>
+            <li><span>03</span><div><strong>Study responsibly</strong><p>Clear educational limitations and privacy reminders stay visible.</p></div></li>
+          </ul>
+          <div class="safety-note"><strong>Designed for education.</strong> The tutor does not diagnose, prescribe, or replace professional clinical judgment.</div>
+        </div>
+      </div>
+    </section>
 
-    requestAnimationFrame(tick);
-  }
-  tick();
-})();
-</script>
+    <section class="section medquest-section" id="medquest">
+      <div class="app-shell medquest-grid">
+        <div class="product-copy reveal">
+          <span class="section-kicker">MedQuest by Medicine4Life</span>
+          <h2>Turn clinical recall into focused play.</h2>
+          <p>MedQuest gives medical learning its own destination—with daily challenges, topic paths, difficulty progression, streaks, and explanations that make each answer useful.</p>
+          <div class="game-list">
+            <div><span class="game-number">01</span><div><strong>MedDecode</strong><p>Fill the missing letters to decode medicines and diseases.</p></div></div>
+            <div><span class="game-number">02</span><div><strong>Drug Match</strong><p>Connect medicines with their pharmacological classes.</p></div></div>
+            <div><span class="game-number">03</span><div><strong>Diagnose It</strong><p>Reveal clues and reason toward the most likely diagnosis.</p></div></div>
+          </div>
+        </div>
+
+        <div class="medquest-visual reveal">
+          <div class="quest-ring ring-one"></div><div class="quest-ring ring-two"></div>
+          <figure class="single-phone quest-phone"><img src="images/app-screens/medquest.png" alt="Real MedQuest topic paths mobile screen" width="1080" height="2400" loading="lazy" decoding="async"></figure>
+          <div class="quest-stat stat-one"><strong>3</strong><span>game modes</span></div>
+          <div class="quest-stat stat-two"><strong>3</strong><span>difficulty levels</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section subjects-section">
+      <div class="app-shell">
+        <div class="section-heading centered reveal">
+          <span class="section-kicker">Learn by subject</span>
+          <h2>One taxonomy across the entire app.</h2>
+          <p>Articles, tutor prompts, games, quizzes, and progress connect back to the same clinical subjects.</p>
+        </div>
+        <div class="subject-cloud reveal" aria-label="Medical subjects supported by Medicine4Life">
+          <span>Cardiology</span><span>Pharmacology</span><span>Neurology</span><span>Endocrinology</span><span>Respiratory medicine</span><span>Gastroenterology</span><span>Infectious diseases</span><span>Nephrology</span><span>Paediatrics</span><span>Obstetrics & gynaecology</span><span>Psychiatry</span><span>General medicine</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reading-section" id="reading">
+      <div class="app-shell">
+        <div class="reading-header reveal">
+          <div><span class="section-kicker">Medicine4Life reading</span><h2>Keep the depth. Lose the clutter.</h2><p>The article library remains part of Medicine4Life—now as one learning surface inside a broader platform.</p></div>
+          <a class="text-link" href="blog.html">Browse all articles <span>→</span></a>
+        </div>
+        <div class="article-grid" data-article-grid><div class="article-skeleton"></div><div class="article-skeleton"></div><div class="article-skeleton"></div></div>
+      </div>
+    </section>
+
+    <section class="section closing-section">
+      <div class="app-shell">
+        <div class="closing-card reveal">
+          <div><span class="testing-pill light"><span></span> Preparing for closed testing</span><h2>A calmer way to build clinical mastery.</h2><p>Medicine4Life is being prepared for Android closed testing. Follow the project as reliability, content, and release readiness are completed.</p></div>
+          <div class="closing-actions"><a class="primary-button white" href="contact.html">Contact Medicine4Life</a><a class="inline-link" href="privacy.html">Read our privacy policy →</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="app-shell footer-grid">
+      <div class="footer-brand"><a class="app-brand" href="index.html"><img src="images/favicon-180.png" alt="" width="64" height="64"><span>Medicine4Life</span></a><p>Clinical education, made approachable.</p></div>
+      <div class="footer-links">
+        <div><strong>Platform</strong><a href="#tutor">AI Tutor</a><a href="#medquest">MedQuest</a><a href="#features">Features</a></div>
+        <div><strong>Reading</strong><a href="blog.html">Articles</a><a href="glossary.html">Glossary</a><a href="disease-library.html">Disease library</a></div>
+        <div><strong>Company</strong><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="disclaimer.html">Disclaimer</a></div>
+      </div>
+    </div>
+    <div class="app-shell footer-bottom"><span>© 2026 Medicine4Life. Owned by Sushil Dethaliya.</span><span>For medical education only.</span></div>
+  </footer>
+
+  <script src="app.js" defer></script>
 </body>
 </html>
