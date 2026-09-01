@@ -15,8 +15,8 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Search — Medicine4life</title>
-<meta name="description" content="Search articles, news, glossary terms, and disease library entries across Medicine4life.">
+<title>Search articles — Medicine4Life</title>
+<meta name="description" content="Search original Medicine4Life clinical reading and medical education articles.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display&family=Arimo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -24,22 +24,22 @@
 <link rel="apple-touch-icon" href="images/favicon-180.png">
 <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 <style>
-  .search-input-wrap { position: relative; margin: 10px 0 30px; }
+  .search-input-wrap { position: relative; margin: 20px 0 34px; }
   .search-input {
     width: 100%;
     box-sizing: border-box;
-    padding: 14px 16px 14px 44px;
+    padding: 17px 18px 17px 50px;
     font-size: 1.05rem;
     font-family: var(--font-body);
     border: 1px solid var(--line);
-    border-radius: 10px;
+    border-radius: 16px;
     background: #fff;
     color: var(--ink);
   }
-  .search-input:focus { outline: none; border-color: var(--signal); }
+  .search-input:focus { outline: none; border-color: var(--blue-mid); box-shadow: 0 0 0 4px rgba(23,105,232,.1); }
   .search-input-icon {
     position: absolute;
-    left: 14px;
+    left: 17px;
     top: 50%;
     transform: translateY(-50%);
     color: var(--ink-soft);
@@ -47,23 +47,28 @@
   }
   .search-result {
     display: block;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--line);
+    padding: 18px 20px;
+    margin-bottom: 10px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #f9fbfe;
     text-decoration: none;
     color: inherit;
   }
-  .search-result:hover .search-result-title { color: var(--signal); }
+  .search-result:hover .search-result-title { color: var(--blue-mid); }
   .search-result-type {
     font-family: var(--font-mono);
     font-size: 0.72rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--signal);
+    color: var(--blue-mid);
     margin-bottom: 4px;
   }
   .search-result-title {
     font-family: var(--font-display);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    font-weight: 750;
+    color: var(--blue-deep);
     margin-bottom: 4px;
     transition: color 0.15s ease;
   }
@@ -101,11 +106,11 @@
     <span class="search-input-icon">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
     </span>
-    <input type="text" id="searchInput" class="search-input" placeholder="Search articles, news, glossary terms, diseases..." autocomplete="off">
+    <input type="text" id="searchInput" class="search-input" placeholder="Search Medicine4Life articles..." autocomplete="off">
   </div>
 
   <div id="searchResults">
-    <p class="search-hint">Start typing to search across everything on the site.</p>
+    <p class="search-hint">Start typing to search the article library.</p>
   </div>
 </main>
 
@@ -135,14 +140,7 @@ function buildSnippet(text, query) {
   return (start > 0 ? "…" : "") + text.slice(start, end) + (end < text.length ? "…" : "");
 }
 
-Promise.all([
-  fetch('posts.json').then(r => r.json()).catch(() => []),
-  fetch('news.json').then(r => r.json()).catch(() => []),
-  fetch('the-basics.json').then(r => r.json()).catch(() => []),
-  fetch('student-corner.json').then(r => r.json()).catch(() => []),
-  fetch('glossary.json').then(r => r.json()).catch(() => []),
-  fetch('diseases.json').then(r => r.json()).catch(() => []),
-]).then(([posts, news, basics, corner, glossary, diseases]) => {
+fetch('posts.json').then(r => r.json()).catch(() => []).then((posts) => {
   const articleLike = (items, typeLabel) => items.map(item => ({
     type: typeLabel,
     title: item.title,
@@ -150,24 +148,7 @@ Promise.all([
     link: item.link,
   }));
 
-  searchIndex = [
-    ...articleLike(posts, "Article"),
-    ...articleLike(news, "News"),
-    ...articleLike(basics, "The Basics"),
-    ...articleLike(corner, "Student Corner"),
-    ...glossary.map(g => ({
-      type: "Glossary",
-      title: g.term,
-      text: g.definition,
-      link: `glossary.html#${g.slug}`,
-    })),
-    ...diseases.map(d => ({
-      type: "Disease Library",
-      title: d.name,
-      text: d.overview,
-      link: `disease-library.html#${d.slug}`,
-    })),
-  ];
+  searchIndex = articleLike(posts, "Article");
 
   // If the page was opened with ?q=..., run that search immediately
   const params = new URLSearchParams(window.location.search);
@@ -186,7 +167,7 @@ function runSearch(query) {
   const q = query.trim();
 
   if (!q) {
-    container.innerHTML = '<p class="search-hint">Start typing to search across everything on the site.</p>';
+    container.innerHTML = '<p class="search-hint">Start typing to search the article library.</p>';
     return;
   }
 

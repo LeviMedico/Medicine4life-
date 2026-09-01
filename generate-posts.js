@@ -30,7 +30,10 @@ function parseFrontmatter(raw) {
 
   const [, frontmatterBlock, body] = match;
   const data = {};
-  const lines = frontmatterBlock.split("\n");
+  // Accept both Unix and Windows line endings. Splitting only on `\n` leaves
+  // a trailing `\r`, which prevents every `key: value` line from matching and
+  // silently turns otherwise valid posts into "Untitled" articles.
+  const lines = frontmatterBlock.split(/\r?\n/);
   let i = 0;
 
   while (i < lines.length) {
