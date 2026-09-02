@@ -73,7 +73,7 @@
           </div>
         </div>
 
-        <div class="device-stage reveal" aria-label="Real Medicine4Life app screens">
+        <div class="device-stage reveal" aria-label="Real Medicine4Life app screens" data-tilt>
           <div class="device-glow"></div>
           <div class="floating-note note-top"><span>AI</span> Clinical learning</div>
           <div class="floating-note note-bottom"><span>20%</span> Unified mastery</div>
@@ -99,6 +99,69 @@
       </div>
     </section>
 
+    <section class="section showcase-section" id="experience">
+      <div class="app-shell">
+        <div class="section-heading centered reveal">
+          <span class="section-kicker">Explore the experience</span>
+          <h2>See how each learning mode fits together.</h2>
+          <p>Choose a surface to preview the real app, understand what it does, and see how every session contributes to progress.</p>
+        </div>
+
+        <div class="interactive-showcase reveal" data-showcase data-mode="tutor">
+          <div class="showcase-controls" role="tablist" aria-label="Medicine4Life app experiences">
+            <button class="showcase-tab is-active" id="showcase-tab-tutor" type="button" role="tab" aria-selected="true" aria-controls="showcase-panel" tabindex="0" data-showcase-key="tutor">
+              <span class="showcase-tab-icon">AI</span>
+              <span><strong>AI Clinical Tutor</strong><small>Explain, compare, quiz</small></span>
+              <span class="showcase-tab-arrow">→</span>
+            </button>
+            <button class="showcase-tab" id="showcase-tab-medquest" type="button" role="tab" aria-selected="false" aria-controls="showcase-panel" tabindex="-1" data-showcase-key="medquest">
+              <span class="showcase-tab-icon">MQ</span>
+              <span><strong>MedQuest</strong><small>Decode, match, diagnose</small></span>
+              <span class="showcase-tab-arrow">→</span>
+            </button>
+            <button class="showcase-tab" id="showcase-tab-mastery" type="button" role="tab" aria-selected="false" aria-controls="showcase-panel" tabindex="-1" data-showcase-key="mastery">
+              <span class="showcase-tab-icon">%</span>
+              <span><strong>Unified mastery</strong><small>See every learning signal</small></span>
+              <span class="showcase-tab-arrow">→</span>
+            </button>
+
+            <div class="mastery-preview" data-mastery-preview aria-label="Example mastery overview">
+              <div class="mastery-ring" data-progress="68" aria-label="68 percent example mastery">
+                <span data-mastery-value>0%</span>
+              </div>
+              <div><small>Example learning view</small><strong>Knowledge taking shape</strong><span>Across study, play, and recall</span></div>
+            </div>
+          </div>
+
+          <div class="showcase-panel" id="showcase-panel" role="tabpanel" aria-live="polite" aria-labelledby="showcase-tab-tutor">
+            <div class="showcase-copy">
+              <span class="showcase-kicker" data-showcase-kicker>Understand</span>
+              <h3 data-showcase-title>Turn a question into a learning path.</h3>
+              <p data-showcase-description>Ask naturally, then move into a simpler explanation, a comparison, an MCQ, or flashcards without breaking your study flow.</p>
+              <ul class="showcase-points" data-showcase-points>
+                <li>Clinical explanations in a structured reading view</li>
+                <li>One-tap follow-ups for active learning</li>
+                <li>Clear educational and privacy boundaries</li>
+              </ul>
+              <div class="showcase-metrics" aria-label="Experience highlights">
+                <div><strong data-showcase-stat-one>5</strong><span data-showcase-stat-one-label>learning actions</span></div>
+                <div><strong data-showcase-stat-two>1</strong><span data-showcase-stat-two-label>focused conversation</span></div>
+              </div>
+            </div>
+
+            <div class="showcase-device-wrap" data-tilt>
+              <div class="showcase-device-glow"></div>
+              <figure class="showcase-phone" data-showcase-phone>
+                <img src="images/app-screens/ai-tutor.png" alt="Medicine4Life AI Clinical Tutor screen" width="1080" height="2400" loading="lazy" decoding="async" data-showcase-image>
+              </figure>
+              <div class="showcase-badge badge-one" data-showcase-badge-one>Ready to learn</div>
+              <div class="showcase-badge badge-two" data-showcase-badge-two>Source-aware</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="features">
       <div class="app-shell">
         <div class="section-heading centered reveal">
@@ -107,12 +170,13 @@
           <p>Medicine4Life connects short study sessions to a shared progress model, so learning never feels like a collection of disconnected tools.</p>
         </div>
 
-        <div class="feature-grid" id="experience">
+        <div class="feature-grid">
           <article class="feature-card feature-blue reveal">
             <div class="feature-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4a9 9 0 0 0-5 16.5V25h10v-4.5A9 9 0 0 0 16 4Z"/><path d="M12 28h8M11 15h10M16 10v10"/></svg></div>
             <span class="feature-label">Understand</span>
             <h3>AI Clinical Tutor</h3>
             <p>Ask for an explanation, compare conditions, work through a case, generate a quiz, or turn a topic into flashcards.</p>
+            <details class="feature-more"><summary>See how it helps</summary><p>Begin with any medical topic, refine the depth, and convert the explanation into active-recall material in the same session.</p></details>
           </article>
 
           <article class="feature-card feature-purple reveal">
@@ -120,6 +184,7 @@
             <span class="feature-label">Recall</span>
             <h3>Quizzes & flashcards</h3>
             <p>Practice high-yield concepts in focused sessions and review saved AI flashcards at your own pace.</p>
+            <details class="feature-more"><summary>See how it helps</summary><p>Short sessions make gaps visible quickly, while saved cards give difficult concepts a clear route back into revision.</p></details>
           </article>
 
           <article class="feature-card feature-teal reveal">
@@ -127,6 +192,7 @@
             <span class="feature-label">Discover</span>
             <h3>Medicine library</h3>
             <p>Search medicines by generic or brand name with source-aware information assembled from authoritative public datasets.</p>
+            <details class="feature-more"><summary>See how it helps</summary><p>Move from a medicine name to its class, uses, safety information, and trusted source context without searching across multiple sites.</p></details>
           </article>
 
           <article class="feature-card feature-green reveal">
@@ -134,6 +200,7 @@
             <span class="feature-label">Read</span>
             <h3>Clinical reading</h3>
             <p>Original Medicine4Life articles with authorship, medical-review status, references, and scheduled review dates.</p>
+            <details class="feature-more"><summary>See how it helps</summary><p>Review status and references remain visible, so learners can understand where content came from and when it should be revisited.</p></details>
           </article>
 
           <article class="feature-card feature-orange reveal">
@@ -141,6 +208,7 @@
             <span class="feature-label">Measure</span>
             <h3>Unified mastery</h3>
             <p>See quiz accuracy, flashcard confidence, game performance, subject strength, streaks, and recent learning together.</p>
+            <details class="feature-more"><summary>See how it helps</summary><p>Every meaningful activity contributes to one progress view, making the next study decision clearer instead of adding another score.</p></details>
           </article>
 
           <article class="feature-card feature-navy reveal">
@@ -148,6 +216,7 @@
             <span class="feature-label">Play</span>
             <h3>MedQuest games</h3>
             <p>Decode names, match medicines, and solve diagnostic cases across subject-based paths and difficulty levels.</p>
+            <details class="feature-more"><summary>See how it helps</summary><p>Game formats vary the type of recall while explanations connect each correct answer back to the underlying medical concept.</p></details>
           </article>
         </div>
       </div>
